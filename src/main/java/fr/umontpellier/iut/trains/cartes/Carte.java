@@ -19,13 +19,9 @@ public abstract class Carte {
      * fournies font appel à ce constructeur simple mais au fur et à mesure que vous
      * les compléterez, elles devront utiliser les autres constructeurs de Carte. Si
      * vous n'utilisez plus ce constructeur, vous pouvez le supprimer.
-     * 
-     * @param nom
+     *
+     * @param nom, valeur, cout
      */
-    public Carte(String nom) {
-        this.nom = nom;
-    }
-
     public Carte(String nom, int valeur, int cout) {
         this.nom = nom;
         this.valeur = valeur;
