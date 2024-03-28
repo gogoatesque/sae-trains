@@ -47,6 +47,10 @@ public abstract class Carte {
         return categorie;
     }
 
+    private void setCategorie(ArrayList<CategoriesCarte> valeur){
+        categorie =  valeur;
+    }
+
     @Override
     public String toString() {
         return nom;
