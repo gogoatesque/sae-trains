@@ -10,4 +10,5 @@ public abstract class CarteBleue extends Carte {
         this.valeur = valeur;
         this.cout = cout;
     }
+
 }
