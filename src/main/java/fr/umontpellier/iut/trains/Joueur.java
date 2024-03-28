@@ -169,6 +169,13 @@ public class Joueur {
         return listeCarte;
     }
 
+    public void enleverCarteMain(Carte carte) {
+        main.remove(carte);
+    }
+
+    public void placerCarteDefausse(Carte carte) {
+        defausse.add(carte);
+    }
     /**
      * Joue un tour complet du joueur
      * <p>
