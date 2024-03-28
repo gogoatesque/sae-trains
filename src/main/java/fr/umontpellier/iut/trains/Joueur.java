@@ -59,12 +59,15 @@ public class Joueur {
      */
     private CouleurJoueur couleur;
 
+    private int pointsVictoire;
+
     public Joueur(Jeu jeu, String nom, CouleurJoueur couleur) {
         this.jeu = jeu;
         this.nom = nom;
         this.couleur = couleur;
         argent = 0;
         pointsRails = 0;
+        pointsVictoire = 0;
         nbJetonsRails = 20;
         main = new ListeDeCartes();
         defausse = new ListeDeCartes();
