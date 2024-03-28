@@ -205,22 +205,51 @@ public class Joueur {
     public void jouerTour() {
         // Initialisation
         jeu.log("<div class=\"tour\">Tour de " + toLog() + "</div>");
-        // À FAIRE: compléter l'initialisation du tour si nécessaire (mais possiblement
-        // rien de spécial à faire)
 
         boolean finTour = false;
         // Boucle principale
         while (!finTour) {
             List<String> choixPossibles = new ArrayList<>();
-            // À FAIRE: préparer la liste des choix possibles
-
+            for (Carte c : main) {
+                // ajoute les noms de toutes les cartes en main
+                choixPossibles.add(c.getNom());
+            }
+            for (String nomCarte : jeu.getReserve().keySet()) {
+                // ajoute les noms des cartes dans la réserve préfixés de "ACHAT:"
+                choixPossibles.add("ACHAT:" + nomCarte);
+            }
             // Choix de l'action à réaliser
             String choix = choisir(String.format("Tour de %s", this.nom), choixPossibles, null, true);
 
-            // À FAIRE: exécuter l'action demandée par le joueur
+            if (choix.startsWith("ACHAT:")) {
+                // prendre une carte dans la réserve
+                String nomCarte = choix.split(":")[1];
+                Carte carte = jeu.prendreDansLaReserve(nomCarte);
+                if (carte != null) {
+                    log("Reçoit " + carte); // affichage dans le log
+                    cartesRecues.add(carte);
+                }
+            } else if (choix.equals("")) {
+                // terminer le tour
+                finTour = true;
+            } else {
+                // jouer une carte de la main
+                Carte carte = main.retirer(choix);
+                log("Joue " + carte); // affichage dans le log
+                cartesEnJeu.add(carte); // mettre la carte en jeu
+                carte.jouer(this); // exécuter l'action de la carte
+            }
         }
         // Finalisation
-        // À FAIRE: compléter la finalisation du tour
+        // défausser toutes les cartes
+        defausse.addAll(main);
+        main.clear();
+        defausse.addAll(cartesRecues);
+        cartesRecues.clear();
+        defausse.addAll(cartesEnJeu);
+        cartesEnJeu.clear();
+
+        main.addAll(piocher(5)); // piocher 5 cartes en main
     }
 
     /**
@@ -236,7 +265,7 @@ public class Joueur {
      * Exemple d'utilisation pour demander à un joueur de répondre à une question
      * par "oui" ou "non" :
      * <p>
-     * 
+     *
      * <pre>{@code
      * List<String> choix = Arrays.asList("oui", "non");
      * String input = choisir("Voulez-vous faire ceci ?", choix, null, false);
@@ -244,12 +273,12 @@ public class Joueur {
      * <p>
      * Si par contre on voulait proposer les réponses à l'aide de boutons, on
      * pourrait utiliser :
-     * 
+     *
      * <pre>{@code
      * List<String> boutons = Arrays.asList(new Bouton("Oui !", "oui"), new Bouton("Non !", "non"));
      * String input = choisir("Voulez-vous faire ceci ?", null, boutons, false);
      * }</pre>
-     * 
+     *
      * (ici le premier bouton a le label "Oui !" et envoie la String "oui" s'il est
      * cliqué, le second a le label "Non !" et envoie la String "non" lorsqu'il est
      * cliqué)
@@ -260,7 +289,7 @@ public class Joueur {
      * {@code ""} n'est pas valide. Cependant s'il n'y a aucun choix proposé (les
      * listes {@code choix} et {@code boutons} sont vides ou {@code null}), le choix
      * {@code ""} est accepté pour éviter un blocage.
-     * 
+     *
      * @param instruction message à afficher à l'écran pour indiquer au joueur la
      *                    nature du choix qui est attendu
      * @param choix       une collection de chaînes de caractères correspondant aux
@@ -310,7 +339,7 @@ public class Joueur {
 
     /**
      * Ajoute un message dans le log du jeu
-     * 
+     *
      * @param message message à ajouter dans le log
      */
     public void log(String message) {
