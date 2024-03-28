@@ -133,6 +133,7 @@ public class Joueur {
             }
             else{
                 pioche.addAll(defausse);
+                defausse.removeAll(defausse);
                 pioche.melanger();
             }
         }
@@ -153,8 +154,19 @@ public class Joueur {
      *         défausse)
      */
     public List<Carte> piocher(int n) {
-        // À FAIRE
-        return null;
+        ListeDeCartes listeCarte = new ListeDeCartes();
+        int i = 1;
+        boolean peutPiocher = true;
+        Carte carteP;
+        while(i <= n && peutPiocher) {
+            carteP = piocher();
+            if (carteP == null) peutPiocher = false;
+            else {
+                listeCarte.add(carteP);
+                i++;
+            }
+        }
+        return listeCarte;
     }
 
     /**
