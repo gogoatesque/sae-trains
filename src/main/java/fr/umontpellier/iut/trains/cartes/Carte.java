@@ -5,11 +5,6 @@ import fr.umontpellier.iut.trains.Joueur;
 public abstract class Carte {
     private final String nom;
 
-    private final int valeur;
-
-    private final int cout;
-
-
     /**
      * Constructeur simple
      * <p>
@@ -22,10 +17,8 @@ public abstract class Carte {
      *
      * @param nom, valeur, cout
      */
-    public Carte(String nom, int valeur, int cout) {
+    public Carte(String nom) {
         this.nom = nom;
-        this.valeur = valeur;
-        this.cout = cout;
     }
 
     public String getNom() {
