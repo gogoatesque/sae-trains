@@ -5,6 +5,11 @@ import fr.umontpellier.iut.trains.Joueur;
 public abstract class Carte {
     private final String nom;
 
+    private final int valeur;
+
+    private final int cout;
+
+
     /**
      * Constructeur simple
      * <p>
@@ -21,6 +26,12 @@ public abstract class Carte {
         this.nom = nom;
     }
 
+    public Carte(String nom, int valeur, int cout) {
+        this.nom = nom;
+        this.valeur = valeur;
+        this.cout = cout;
+    }
+
     public String getNom() {
         return nom;
     }    
@@ -32,7 +43,12 @@ public abstract class Carte {
      * @param joueur le joueur qui joue la carte
      */
     public void jouer(Joueur joueur) {
+        joueur.enleverCarteMain(this);
+        this.faireAction();
+        joueur.placerCarteDefausse(this);
     }
+
+    public abstract void faireAction();
 
     @Override
     public String toString() {
