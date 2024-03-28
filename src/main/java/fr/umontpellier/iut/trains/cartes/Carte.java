@@ -2,8 +2,12 @@ package fr.umontpellier.iut.trains.cartes;
 
 import fr.umontpellier.iut.trains.Joueur;
 
+import java.util.ArrayList;
+
 public abstract class Carte {
     private final String nom;
+
+    private ArrayList<CategoriesCarte> categorie;
 
     /**
      * Constructeur simple
@@ -38,6 +42,10 @@ public abstract class Carte {
     }
 
     public abstract void faireAction();
+
+    public ArrayList<CategoriesCarte> getCategorie(){
+        return categorie;
+    }
 
     @Override
     public String toString() {
