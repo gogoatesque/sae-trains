@@ -127,8 +127,16 @@ public class Joueur {
      * @return la carte piochée ou {@code null} si aucune carte disponible
      */
     public Carte piocher() {
-        // À FAIRE
-        return null;
+        if (pioche.isEmpty()){
+            if (defausse.isEmpty()){
+                return null;
+            }
+            else{
+                pioche.addAll(defausse);
+                pioche.melanger();
+            }
+        }
+        return pioche.remove(0);
     }
 
     /**
