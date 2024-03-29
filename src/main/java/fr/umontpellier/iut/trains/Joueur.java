@@ -61,6 +61,7 @@ public class Joueur {
 
     private int pointsVictoire;
 
+    private HashSet<String> effetsActifs;
     public Joueur(Jeu jeu, String nom, CouleurJoueur couleur) {
         this.jeu = jeu;
         this.nom = nom;
@@ -91,7 +92,7 @@ public class Joueur {
         for (int i = 0; i < 5; i++) {
             main.add(pioche.remove(0));
         }
-
+        effetsActifs = new HashSet<>();
     }
 
     public int getArgent() {
@@ -282,6 +283,7 @@ public class Joueur {
         reinitialiserArgent();
         reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
+        effetsActifs.clear();
     }
 
     /**
