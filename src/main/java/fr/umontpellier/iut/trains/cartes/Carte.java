@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public abstract class Carte {
     private final String nom;
+    private final int cout;
 
     private ArrayList<CategoriesCarte> categorie;
 
@@ -21,8 +22,9 @@ public abstract class Carte {
      *
      * @param nom, valeur, cout
      */
-    public Carte(String nom) {
+    public Carte(String nom, int cout) {
         this.nom = nom;
+        this.cout = cout;
     }
 
     public String getNom() {
@@ -47,8 +49,8 @@ public abstract class Carte {
         return categorie;
     }
 
-    private void setCategorie(ArrayList<CategoriesCarte> valeur){
-        categorie =  valeur;
+    public void addCategorie(CategoriesCarte valeur){
+        categorie.add(valeur);
     }
 
     @Override
