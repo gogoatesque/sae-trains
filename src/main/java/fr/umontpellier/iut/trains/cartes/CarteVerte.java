@@ -11,7 +11,7 @@ public abstract class CarteVerte extends Carte{
 
     @Override
     public void faireAction(Joueur joueur) {
-        joueur.getJeu().choisirCaseEtAjouterRail(joueur);
+        joueur.incrementerPointsRail();
         joueur.prendreFerraille();
     }
 }
