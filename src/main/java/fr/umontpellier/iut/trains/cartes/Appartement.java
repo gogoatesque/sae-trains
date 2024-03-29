@@ -1,7 +1,14 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Appartement extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class Appartement extends CarteOr {
     public Appartement() {
-        super("Appartement");
+        super("Appartement", 3, 1);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+        joueur.prendreFerraille();
     }
 }
