@@ -191,6 +191,10 @@ public class Joueur {
     public void placerCarteEnJeu(Carte carte) {
         cartesEnJeu.add(carte);
     }
+
+    public void placerCarteDefausse(Carte carte) {
+        defausse.add(carte);
+    }
     /**
      * Joue un tour complet du joueur
      * <p>
