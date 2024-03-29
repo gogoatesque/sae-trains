@@ -1,14 +1,6 @@
 package fr.umontpellier.iut.trains;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import fr.umontpellier.iut.trains.cartes.Carte;
@@ -309,5 +301,12 @@ public class Jeu implements Runnable {
                 Map.entry("tuiles", tuiles.stream().map(Tuile::dataMap).toList()),
                 Map.entry("log", log),
                 Map.entry("reserve", listeReserve));
+    }
+
+    public void choisirCaseEtAjouterRail(Joueur joueur){   //primitive
+        List<String> choix = new ArrayList<>();
+        for (int i=0 ; i<76 ; i++){choix.add(Integer.toString(i));}
+        Tuile tuile = tuiles.get(Integer.parseInt(joueur.choisir("Choisissez une case où placer un rail",choix,null,false)));
+        tuile.ajouterRail(joueur);
     }
 }
