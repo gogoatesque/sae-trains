@@ -13,6 +13,6 @@ public abstract class CarteBleue extends Carte {
 
     @Override
     public void faireAction(Joueur joueur) {
-        joueur.setArgent(joueur.getArgent()+valeur);
+        joueur.addArgent(valeur);
     }
 }
