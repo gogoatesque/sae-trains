@@ -98,9 +98,11 @@ public class Joueur {
         return argent;
     }
 
-    public void setArgent(int argent) {
-        this.argent = argent;
+    public void addArgent(int argent) {
+        this.argent += argent;
     }
+
+    public void reinitialiserArgent() {argent = 0;}
 
     public String getNom() {
         return nom;
@@ -184,6 +186,9 @@ public class Joueur {
         return listeCarte;
     }
 
+    public void incrementerPointsRail(){pointsRails++;}
+    public void decrementerrPointsRail(){pointsRails--;}
+    public void reinitialiserPointsRail(){pointsRails = 0;}
     public void enleverCarteMain(Carte carte) {
         main.remove(carte);
     }
@@ -274,7 +279,8 @@ public class Joueur {
         cartesRecues.clear();
         defausse.addAll(cartesEnJeu);
         cartesEnJeu.clear();
-        setArgent(0);
+        reinitialiserArgent();
+        reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
     }
 
