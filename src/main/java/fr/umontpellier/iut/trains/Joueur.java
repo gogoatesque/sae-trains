@@ -98,6 +98,10 @@ public class Joueur {
         return nom;
     }
 
+    public Jeu getJeu() {
+        return jeu;
+    }
+
     public CouleurJoueur getCouleur() {
         return couleur;
     }
