@@ -8,6 +8,7 @@ public abstract class CarteVerte extends Carte{
     public CarteVerte(String nom, int cout) {
         super(nom);
         this.cout = cout;
+        addCategorie(CategoriesCarte.VERTE);
     }
 
     @Override
