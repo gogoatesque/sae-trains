@@ -37,11 +37,11 @@ public abstract class Carte {
      */
     public void jouer(Joueur joueur) {
         joueur.enleverCarteMain(this);
-        this.faireAction();
+        this.faireAction(joueur);
         joueur.placerCarteDefausse(this);
     }
 
-    public abstract void faireAction();
+    public abstract void faireAction(Joueur Joueur);
 
     public ArrayList<CategoriesCarte> getCategorie(){
         return categorie;
