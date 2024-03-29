@@ -373,6 +373,10 @@ public class Joueur {
         return joiner.toString();
     }
 
+    public void prendreFerraille() {
+        Carte ferraille = jeu.prendreDansLaReserve("Ferraille");
+        if (ferraille != null) cartesRecues.add(ferraille);
+    }
     /**
      * @return une représentation du joueur pour l'affichage dans le log du jeu
      */
