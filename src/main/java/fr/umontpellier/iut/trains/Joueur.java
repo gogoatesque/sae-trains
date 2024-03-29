@@ -95,6 +95,10 @@ public class Joueur {
         effetsActifs = new HashSet<>();
     }
 
+    public ListeDeCartes getMain() {
+        return main;
+    }
+
     public int getArgent() {
         return argent;
     }
