@@ -94,6 +94,14 @@ public class Joueur {
 
     }
 
+    public int getArgent() {
+        return argent;
+    }
+
+    public void setArgent(int argent) {
+        this.argent = argent;
+    }
+
     public String getNom() {
         return nom;
     }
@@ -180,8 +188,8 @@ public class Joueur {
         main.remove(carte);
     }
 
-    public void placerCarteDefausse(Carte carte) {
-        defausse.add(carte);
+    public void placerCarteEnJeu(Carte carte) {
+        cartesEnJeu.add(carte);
     }
     /**
      * Joue un tour complet du joueur
@@ -262,7 +270,7 @@ public class Joueur {
         cartesRecues.clear();
         defausse.addAll(cartesEnJeu);
         cartesEnJeu.clear();
-
+        setArgent(0);
         main.addAll(piocher(5)); // piocher 5 cartes en main
     }
 
