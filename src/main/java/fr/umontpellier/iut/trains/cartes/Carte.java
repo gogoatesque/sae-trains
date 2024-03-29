@@ -40,7 +40,8 @@ public abstract class Carte {
     public void jouer(Joueur joueur) {
         joueur.enleverCarteMain(this);
         this.faireAction(joueur);
-        joueur.placerCarteDefausse(this);
+        joueur.placerCarteEnJeu(this);
+
     }
 
     public abstract void faireAction(Joueur Joueur);
