@@ -58,4 +58,10 @@ public abstract class Carte {
     public String toString() {
         return nom;
     }
+
+    public int getCout() {
+        return cout;
+    }
+
+
 }
