@@ -397,6 +397,18 @@ public class Joueur {
         Carte ferraille = jeu.prendreDansLaReserve("Ferraille");
         if (ferraille != null) cartesRecues.add(ferraille);
     }
+
+    public void acheterCarte(String nomCarte){
+        Carte carte = jeu.prendreDansLaReserve(nomCarte);
+        if (argent>= carte.getCout()){
+            addArgent(-carte.getCout());
+        }
+        else {
+            jeu.ajouterDansLaReserve(carte);
+        }
+
+    }
+
     /**
      * @return une représentation du joueur pour l'affichage dans le log du jeu
      */
