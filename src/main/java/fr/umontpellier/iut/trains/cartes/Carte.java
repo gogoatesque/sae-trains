@@ -63,5 +63,12 @@ public abstract class Carte {
         return cout;
     }
 
+    public int getValeur() {
+        return 0;
+    }
+
+    public int getPv() {
+        return 0;
+    }
 
 }
