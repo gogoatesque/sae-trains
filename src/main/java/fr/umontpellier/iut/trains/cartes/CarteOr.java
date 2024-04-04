@@ -7,4 +7,8 @@ public abstract class CarteOr extends Carte{
         super(nom,cout);
         this.pv = pv;
     }
+
+    public int getPv() {
+        return pv;
+    }
 }
