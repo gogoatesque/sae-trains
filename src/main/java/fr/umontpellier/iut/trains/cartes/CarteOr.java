@@ -6,6 +6,7 @@ public abstract class CarteOr extends Carte{
     public CarteOr(String nom, int cout, int pv) {
         super(nom,cout);
         this.pv = pv;
+        addCategorie(CategoriesCarte.OR);
     }
 
     public int getPv() {
