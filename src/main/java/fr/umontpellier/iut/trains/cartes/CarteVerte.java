@@ -10,8 +10,12 @@ public abstract class CarteVerte extends Carte{
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void jouerCarte(Joueur joueur) {
         joueur.incrementerPointsRail();
         joueur.prendreFerraille();
+        faireAction(joueur);
     }
+
+    public abstract void faireAction(Joueur joueur);
+
 }

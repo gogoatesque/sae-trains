@@ -1,5 +1,7 @@
 package fr.umontpellier.iut.trains.cartes;
 
+import fr.umontpellier.iut.trains.Joueur;
+
 public abstract class CarteOr extends Carte{
     private int pv;
 
@@ -8,6 +10,13 @@ public abstract class CarteOr extends Carte{
         this.pv = pv;
         addCategorie(CategoriesCarte.OR);
     }
+
+    @Override
+    public void jouerCarte(Joueur joueur) {
+        faireAction(joueur);
+    }
+
+    public abstract void faireAction(Joueur joueur);
 
     public int getPv() {
         return pv;

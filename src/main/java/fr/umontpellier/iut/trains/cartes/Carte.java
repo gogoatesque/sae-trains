@@ -39,12 +39,12 @@ public abstract class Carte {
      */
     public void jouer(Joueur joueur) {
         joueur.enleverCarteMain(this);
-        this.faireAction(joueur);
+        this.jouerCarte(joueur);
         joueur.placerCarteEnJeu(this);
 
     }
 
-    public abstract void faireAction(Joueur Joueur);
+    public abstract void jouerCarte(Joueur Joueur);
 
     public ArrayList<CategoriesCarte> getCategorie(){
         return categorie;

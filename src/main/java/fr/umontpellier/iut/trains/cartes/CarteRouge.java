@@ -2,7 +2,7 @@ package fr.umontpellier.iut.trains.cartes;
 
 import fr.umontpellier.iut.trains.Joueur;
 
-public class CarteRouge extends Carte{
+public abstract class CarteRouge extends Carte{
 
     private final int valeur;
 
@@ -13,9 +13,13 @@ public class CarteRouge extends Carte{
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void jouerCarte(Joueur joueur) {
         joueur.addArgent(valeur);
+        faireAction(joueur);
     }
+
+    public abstract void faireAction(Joueur joueur);
+
 
     public int getValeur() {
         return valeur;
