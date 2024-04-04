@@ -13,14 +13,13 @@ public class ParcDAttractions extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
-        super.faireAction(joueur);
         List<String> choix = new ArrayList<>();
         for (Carte carte : joueur.getCartesEnJeu()) {
             if (carte.getCategorie().contains(CategoriesCarte.BLEU)) {
                 choix.add(carte.getNom());
             }
         }
-        Carte train = joueur.getCartesEnJeu().getCarte(joueur.choisir("Choisissez une de vos cartes Train", choix, null, false));
+        Carte train = joueur.getCartesEnJeu().getCarte(joueur.choisir("Choisissez une de vos cartes Train en jeu", choix, null, false));
         joueur.addArgent(train.getValeur());
     }
 }
