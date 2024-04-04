@@ -117,6 +117,10 @@ public class Joueur {
         return jeu;
     }
 
+    public ListeDeCartes getCartesEnJeu() {
+        return cartesEnJeu;
+    }
+
     public CouleurJoueur getCouleur() {
         return couleur;
     }
