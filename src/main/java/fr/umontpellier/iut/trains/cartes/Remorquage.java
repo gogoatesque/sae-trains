@@ -1,7 +1,24 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Remorquage extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Remorquage extends CarteRouge {
     public Remorquage() {
-        super("Remorquage");
+        super("Remorquage",3,0);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+        List<String> choix = new ArrayList<>();
+        for (Carte carte : joueur.getDefausse()) {
+            if (carte.getCategorie().contains(CategoriesCarte.BLEU)) {
+                choix.add(carte.getNom());
+            }
+        }
+        Carte train = joueur.getCartesEnJeu().getCarte(joueur.choisir("Choisissez une cartes Train de votre défausse", choix, null, false));
+        joueur.prendreCarteDefausse(train);
     }
 }
