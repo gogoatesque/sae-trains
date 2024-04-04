@@ -121,6 +121,10 @@ public class Joueur {
         return cartesEnJeu;
     }
 
+    public ListeDeCartes getDefausse() {
+        return defausse;
+    }
+
     public CouleurJoueur getCouleur() {
         return couleur;
     }
@@ -195,8 +199,13 @@ public class Joueur {
         return listeCarte;
     }
 
+    public void prendreCarteDefausse(Carte carte){
+        defausse.retirer(carte.getNom());
+        main.add(carte);
+    }
+
     public void incrementerPointsRail(){pointsRails++;}
-    public void decrementerrPointsRail(){pointsRails--;}
+    public void decrementerPointsRail(){pointsRails--;}
     public void reinitialiserPointsRail(){pointsRails = 0;}
     public void enleverCarteMain(Carte carte) {
         main.remove(carte);
