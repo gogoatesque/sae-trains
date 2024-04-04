@@ -20,4 +20,5 @@ public abstract class CarteBleue extends Carte {
     public int getValeur() {
         return valeur;
     }
+
 }
