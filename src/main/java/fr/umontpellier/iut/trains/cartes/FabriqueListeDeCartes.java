@@ -59,6 +59,18 @@ public abstract class FabriqueListeDeCartes {
         dicoCards.put("Voie souterraine", VoieSouterraine.class);
     }
 
+    /*
+    Getter de tous les noms de cartes
+     */
+    public static List<String> getToutesLesCartes(){
+        ArrayList<String> nomCartes = new ArrayList<>();
+        for(String s : dicoCards.keySet()) {
+            nomCartes.add(s);
+        }
+        return nomCartes;
+    }
+    /*
+     */
     /**
      * Renvoie une liste de cartes contenant un nombre donné d'instances d'une
      * classe de cartes
