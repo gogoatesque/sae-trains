@@ -3,6 +3,7 @@ package fr.umontpellier.iut.trains.cartes;
 import fr.umontpellier.iut.trains.Joueur;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Carte {
     private final String nom;
@@ -71,4 +72,16 @@ public abstract class Carte {
         return 0;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Carte carte = (Carte) o;
+        return nom.equals(carte.nom);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nom);
+    }
 }
