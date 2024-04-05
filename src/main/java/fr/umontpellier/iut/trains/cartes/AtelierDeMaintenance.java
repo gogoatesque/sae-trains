@@ -5,9 +5,9 @@ import fr.umontpellier.iut.trains.Joueur;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AtelierDeMaintenance extends Carte {
+public class AtelierDeMaintenance extends CarteRouge {
     public AtelierDeMaintenance() {
-        super("Atelier de maintenance", 5);
+        super("Atelier de maintenance", 5, 0);
     }
 
     @Override
@@ -17,6 +17,6 @@ public class AtelierDeMaintenance extends Carte {
             if (carte.getCategorie().contains(CategoriesCarte.BLEU)) choix.add(carte.getNom());
         }
         Carte train = joueur.getMain().getCarte(joueur.choisir("Choisissez votre carte Train", choix, null, false));
-        //joueur.addArgent(train.getV);
+        joueur.addArgent(train.getValeur());
     }
 }
