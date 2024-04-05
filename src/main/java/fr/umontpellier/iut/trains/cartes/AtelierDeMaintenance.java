@@ -17,6 +17,11 @@ public class AtelierDeMaintenance extends CarteRouge {
             if (carte.getCategorie().contains(CategoriesCarte.BLEU)) choix.add(carte.getNom());
         }
         Carte train = joueur.getMain().getCarte(joueur.choisir("Choisissez votre carte Train", choix, null, false));
-        joueur.addArgent(train.getValeur());
+        if(train != null) {
+            Carte carte = joueur.getJeu().prendreDansLaReserve(train.getNom());
+            if (carte != null) {
+                joueur.addCarteRecue(carte);
+            }
+        }
     }
 }
