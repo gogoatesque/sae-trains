@@ -235,6 +235,11 @@ public class Joueur {
     public void placerCarteDefausse(Carte carte) {
         defausse.add(carte);
     }
+
+    /*Ajoute une carte au dessus de la pioche*/
+    public void placerDansPioche(Carte carte) {
+        pioche.add(0, carte);
+    }
     /**
      * Joue un tour complet du joueur
      * <p>
