@@ -240,6 +240,11 @@ public class Joueur {
     public void placerDansPioche(Carte carte) {
         pioche.add(0, carte);
     }
+
+    public void ecarteCarte(Carte carte){
+        jeu.getCartesEcartees().add(carte);
+    }
+
     /**
      * Joue un tour complet du joueur
      * <p>
