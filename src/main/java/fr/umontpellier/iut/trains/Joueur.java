@@ -109,6 +109,10 @@ public class Joueur {
 
     public void reinitialiserArgent() {argent = 0;}
 
+    public void addPv(int pv){
+        pointsVictoire += pv;
+    }
+
     public void addCarteRecue(Carte carte){
         cartesRecues.add(carte);
     }
