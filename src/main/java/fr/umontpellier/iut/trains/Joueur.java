@@ -109,6 +109,9 @@ public class Joueur {
 
     public void reinitialiserArgent() {argent = 0;}
 
+    public void addCarteRecue(Carte carte){
+        cartesRecues.add(carte);
+    }
     public String getNom() {
         return nom;
     }
