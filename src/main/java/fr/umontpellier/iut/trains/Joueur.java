@@ -209,7 +209,7 @@ public class Joueur {
     public void prendreCarteDefausse(Carte carte){
         Carte cartePrise = defausse.retirer(carte.getNom());
         if (cartePrise != null) {
-            main.add(cartePrise);
+            ajouterCarteEnMain(cartePrise);
         }
     }
 
