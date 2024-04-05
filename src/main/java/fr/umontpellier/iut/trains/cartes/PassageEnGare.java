@@ -9,7 +9,6 @@ public class PassageEnGare extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
-        super.jouerCarte(joueur);
-        joueur.piocher();
+        joueur.ajouterCarteEnMain(joueur.piocher());
     }
 }
