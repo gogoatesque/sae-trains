@@ -200,8 +200,10 @@ public class Joueur {
     }
 
     public void prendreCarteDefausse(Carte carte){
-        defausse.retirer(carte.getNom());
-        main.add(carte);
+        Carte cartePrise = defausse.retirer(carte.getNom());
+        if (cartePrise != null) {
+            main.add(cartePrise);
+        }
     }
 
     public void incrementerPointsRail(){pointsRails++;}
@@ -215,6 +217,10 @@ public class Joueur {
         cartesEnJeu.add(carte);
     }
 
+    public void placerCarteMainDansReserve(Carte carte){
+        enleverCarteMain(carte);
+        jeu.ajouterDansLaReserve(carte);
+    }
     public void placerCarteDefausse(Carte carte) {
         defausse.add(carte);
     }
