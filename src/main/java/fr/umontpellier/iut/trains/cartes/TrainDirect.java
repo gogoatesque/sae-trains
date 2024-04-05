@@ -1,7 +1,9 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class TrainDirect extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class TrainDirect extends CarteBleue {
     public TrainDirect() {
-        super("Train direct");
+        super("Train direct",6,3);
     }
 }
