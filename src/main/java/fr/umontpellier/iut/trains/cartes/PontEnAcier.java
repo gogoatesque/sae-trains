@@ -8,7 +8,7 @@ public class PontEnAcier extends CarteVerte {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void activerEffet(Joueur joueur) {
         //effet permanent
     }
 }
