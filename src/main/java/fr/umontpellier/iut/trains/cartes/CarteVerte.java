@@ -13,9 +13,9 @@ public abstract class CarteVerte extends Carte{
     public void jouerCarte(Joueur joueur) {
         joueur.incrementerPointsRail();
         joueur.prendreFerraille();
-        faireAction(joueur);
+        activerEffet(joueur);
     }
 
-    public abstract void faireAction(Joueur joueur);
+    public abstract void activerEffet(Joueur joueur);
 
 }
