@@ -121,6 +121,10 @@ public class Jeu implements Runnable {
         return reserve;
     }
 
+    public ListeDeCartes getCartesEcartees() {
+        return cartesEcartees;
+    }
+
     /**
      * Renvoie un ensemble de tous les noms des cartes en jeu.
      * 
