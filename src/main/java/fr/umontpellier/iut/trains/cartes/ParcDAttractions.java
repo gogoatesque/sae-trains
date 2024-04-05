@@ -20,6 +20,8 @@ public class ParcDAttractions extends CarteRouge {
             }
         }
         Carte train = joueur.getCartesEnJeu().getCarte(joueur.choisir("Choisissez une de vos cartes Train en jeu", choix, null, false));
-        joueur.addArgent(train.getValeur());
+        if (train != null) {
+            joueur.addArgent(train.getValeur());
+        }
     }
 }

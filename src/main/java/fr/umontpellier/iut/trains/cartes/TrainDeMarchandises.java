@@ -1,7 +1,15 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class TrainDeMarchandises extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class TrainDeMarchandises extends CarteBleue {
     public TrainDeMarchandises() {
-        super("Train de marchandises");
+        super("Train de marchandises",4,1);
+        addCategorie(CategoriesCarte.ROUGE);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+
     }
 }
