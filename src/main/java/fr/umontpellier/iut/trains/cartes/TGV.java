@@ -10,10 +10,8 @@ public class TGV extends CarteBleue {
 
     @Override
     public void faireAction(Joueur joueur) {
-        for (Carte carte :joueur.getCartesEnJeu()){
-            if (carte.getNom().equals("Train omnibus")){
-                joueur.addArgent(1);
-            }
+        if (joueur.getCartesEnJeu().stream().anyMatch((carte -> {return carte.getNom().equals("Train omnibus");}))){
+            joueur.addArgent(1);
         }
     }
 }
