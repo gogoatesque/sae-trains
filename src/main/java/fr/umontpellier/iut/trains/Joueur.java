@@ -224,6 +224,10 @@ public class Joueur {
         cartesEnJeu.add(carte);
     }
 
+    public void ajouterCarteEnMain(Carte carte){
+        main.add(carte);
+    }
+
     public void placerCarteMainDansReserve(Carte carte){
         enleverCarteMain(carte);
         jeu.ajouterDansLaReserve(carte);
