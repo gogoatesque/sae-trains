@@ -2,10 +2,10 @@ package fr.umontpellier.iut.trains.cartes;
 
 import fr.umontpellier.iut.trains.Joueur;
 
-public class TrainDeTourisme extends CarteBleue {
+public class TrainDeTourisme extends CarteRouge {
     public TrainDeTourisme() {
         super("Train de tourisme",4,1);
-        addCategorie(CategoriesCarte.ROUGE);
+        addCategorie(CategoriesCarte.BLEU);
     }
 
 

@@ -6,10 +6,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class TrainDeMarchandises extends CarteBleue {
+public class TrainDeMarchandises extends CarteRouge {
     public TrainDeMarchandises() {
         super("Train de marchandises",4,1);
-        addCategorie(CategoriesCarte.ROUGE);
+        addCategorie(CategoriesCarte.BLEU);
     }
 
     @Override
