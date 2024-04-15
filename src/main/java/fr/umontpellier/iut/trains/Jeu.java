@@ -104,7 +104,8 @@ public class Jeu implements Runnable {
         }
         this.joueurCourant = joueurs.get(0);
     }
-
+    public int getNbJetonsGare(){return nbJetonsGare;}
+    public void utiliseJetonGare() {nbJetonsGare--;}
     public Joueur getJoueurCourant() {
         return joueurCourant;
     }
