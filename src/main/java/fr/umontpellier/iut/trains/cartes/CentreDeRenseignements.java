@@ -18,14 +18,23 @@ public class CentreDeRenseignements extends CarteRouge {
         String choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, null, true);
         if (!choix.equals("")){
             for(Carte c : listeCartePiochee) {
-                if (c.getNom() == choix) joueur.ajouterCarteEnMain(c);
-                listeChoix.remove(choix);
-                break;
+                if (c.getNom() == choix) {
+                    joueur.ajouterCarteEnMain(c);
+                    listeChoix.remove(choix);
+                    break;
+                }
             }
         }
         for(String s : listeChoix) {
-            choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, null, false);
-            // A FINIR
+            choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, null, false);
+            for(Carte c : listeCartePiochee) {
+                if (c.getNom() == choix) {
+                    joueur.placerDansPioche(c);
+                    listeChoix.remove(choix);
+                    break;
+                }
+
+            }
         }
 
     }
