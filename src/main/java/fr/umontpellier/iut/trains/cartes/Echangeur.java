@@ -1,7 +1,26 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Echangeur extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Echangeur extends CarteRouge {
     public Echangeur() {
-        super("Échangeur");
+        super("Échangeur", 3, 1);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+        List<String> listeChoix = new ArrayList<>();
+        for(Carte c : joueur.getCartesEnJeu()) {
+            if (c.getCategorie().contains(CategoriesCarte.BLEU)) listeChoix.add(c.getNom());
+        }
+        String s = joueur.choisir("Choisissez une carte Train à remettre sur la pioche", listeChoix, null, true);
+        if (!s.equals("")) {
+            Carte c = joueur.getCartesEnJeu().getCarte(s);
+            joueur.placerDansPioche(c);
+            joueur.enleverCarteEnJeu(c);
+        }
     }
 }
