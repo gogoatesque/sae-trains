@@ -223,6 +223,9 @@ public class Joueur {
     public void placerCarteEnJeu(Carte carte) {
         cartesEnJeu.add(carte);
     }
+    public void enleverCarteEnJeu(Carte carte) {
+        cartesEnJeu.remove(carte);
+    }
 
     public void ajouterCarteEnMain(Carte carte){
         main.add(carte);
