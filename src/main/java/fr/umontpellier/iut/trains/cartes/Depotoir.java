@@ -1,7 +1,14 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Depotoir extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class Depotoir extends CarteRouge {
     public Depotoir() {
-        super("Dépotoir");
+        super("Dépotoir", 5,1);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+        joueur.ajouterEffet(TypesEffet.DEPOTOIR);
     }
 }
