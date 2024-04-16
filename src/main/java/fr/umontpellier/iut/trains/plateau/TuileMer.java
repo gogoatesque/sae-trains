@@ -8,4 +8,8 @@ public class TuileMer extends Tuile {
     public TuileMer() {
         super();
     }
+
+    public String getTypeTuile() {
+        return "Mer";
+    }
 }
