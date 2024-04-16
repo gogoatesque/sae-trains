@@ -12,7 +12,8 @@ public abstract class CarteVerte extends Carte{
     @Override
     public void jouerCarte(Joueur joueur) {
         joueur.incrementerPointsRail();
-        joueur.prendreFerraille();
+        if(!joueur.getEffetsActifs().contains(TypesEffet.DEPOTOIR)) joueur.prendreFerraille();
+        if(joueur.getEffetsActifs().contains(TypesEffet.FERRONERIE)) joueur.addArgent(2);
         activerEffet(joueur);
     }
 
