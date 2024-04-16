@@ -89,6 +89,12 @@ public abstract class Tuile {
     }
 
     /**
+     * @return le nombre de jetons max qu'une gare peut avoir. Par défaut la fonction
+     *         renvoie 0 car on ne peut pas poser de jeton gare sur une tuile
+     *         quelconque.
+     */
+    public int getNbGaresMax() {return 0;}
+    /**
      * @return une représentation de la tuile sous la forme d'un dictionnaire de
      *         valeurs sérialisables (qui sera converti en JSON pour l'envoyer à
      *         l'interface
@@ -103,4 +109,8 @@ public abstract class Tuile {
         }
         return map;
     }
+
+    public abstract String getTypeTuile();
+
+    public void poserGare(Joueur joueur){}
 }
