@@ -1,7 +1,14 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Ferronnerie extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class Ferronnerie extends CarteRouge {
     public Ferronnerie() {
-        super("Ferronnerie");
+        super("Ferronnerie", 4,1);
+    }
+
+    @Override
+    public void faireAction(Joueur joueur) {
+        joueur.ajouterEffet(TypesEffet.FERRONERIE);
     }
 }
