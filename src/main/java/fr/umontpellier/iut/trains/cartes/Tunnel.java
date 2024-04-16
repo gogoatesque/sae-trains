@@ -9,6 +9,6 @@ public class Tunnel extends CarteVerte {
 
     @Override
     public void activerEffet(Joueur joueur) {
-        //effet passif
+        joueur.ajouterEffet(TypesEffet.TUNNEL);
     }
 }
