@@ -16,11 +16,15 @@ public class Gare extends Carte {
     public void jouerCarte(Joueur joueur) {
         if (joueur.getJeu().getNbJetonsGare() != 0) {
             List<String> choix = new ArrayList<>();
-            for (int i=0 ; i<76 ; i++){choix.add("TUILE:" + i);}
-            Tuile tuile = joueur.getJeu().getTuiles().get(Integer.parseInt(joueur.choisir("Choisissez une case où placer un rail",choix,null,false).substring(6)));
-            if(tuile instanceof TuileVille) {
-                //constuire une gare (à voir plus tard)
+            for (int i = 0; i < 76; i++) {
+                if (joueur.getJeu().getTuile(i).getTypeTuile() == "Ville" && joueur.getJeu().getTuile(i).getNbGares() < joueur.getJeu().getTuile(i).getNbGaresMax()) {
+                    choix.add("TUILE:" + i);
+                }
             }
+            String s = joueur.choisir("Choisissez la case sur laquelle poser votre gare", choix, null, false);
+            int nbTuile = Integer.parseInt(s.substring(6));
+            Tuile tuile = joueur.getJeu().getTuile(nbTuile);
+            tuile.poserGare(joueur);
         }
         Carte ferraille = joueur.getJeu().prendreDansLaReserve("Ferraille");
         if (ferraille != null) joueur.addCarteRecue(ferraille);
