@@ -11,6 +11,6 @@ public class TrainMatinal extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
-        //effet passif
+        joueur.ajouterEffet(TypesEffet.TRAINMATINAL);
     }
 }
