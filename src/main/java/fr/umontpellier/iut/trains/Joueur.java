@@ -7,9 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringJoiner;
 
-import fr.umontpellier.iut.trains.cartes.Carte;
-import fr.umontpellier.iut.trains.cartes.FabriqueListeDeCartes;
-import fr.umontpellier.iut.trains.cartes.ListeDeCartes;
+import fr.umontpellier.iut.trains.cartes.*;
 
 public class Joueur {
     /**
@@ -60,8 +58,7 @@ public class Joueur {
     private CouleurJoueur couleur;
 
     private int pointsVictoire;
-
-    private HashSet<String> effetsActifs;
+    private HashSet<TypesEffet> effetsActifs;
     public Joueur(Jeu jeu, String nom, CouleurJoueur couleur) {
         this.jeu = jeu;
         this.nom = nom;
@@ -213,6 +210,7 @@ public class Joueur {
         }
     }
 
+    public void ajouterEffet(TypesEffet effet) {effetsActifs.add(effet);}
     public void incrementerPointsRail(){pointsRails++;}
     public void decrementerPointsRail(){pointsRails--;}
     public void reinitialiserPointsRail(){pointsRails = 0;}
