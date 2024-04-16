@@ -1,7 +1,14 @@
 package fr.umontpellier.iut.trains.cartes;
 
-public class Cooperation extends Carte {
+import fr.umontpellier.iut.trains.Joueur;
+
+public class Cooperation extends CarteVerte {
     public Cooperation() {
-        super("Coopération");
+        super("Coopération", 5);
+    }
+
+    @Override
+    public void activerEffet(Joueur joueur) {
+        joueur.ajouterEffet(TypesEffet.COOPERATION);
     }
 }
