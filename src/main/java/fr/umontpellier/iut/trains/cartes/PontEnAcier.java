@@ -9,6 +9,6 @@ public class PontEnAcier extends CarteVerte {
 
     @Override
     public void activerEffet(Joueur joueur) {
-        //effet permanent
+        joueur.ajouterEffet(TypesEffet.PONTACIER);
     }
 }
