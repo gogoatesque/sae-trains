@@ -33,6 +33,7 @@ public class TuileVille extends Tuile {
     public void poserGare(Joueur joueur) {
         nbGaresPosees++;
         gares.add(joueur);
+        joueur.getJeu().utiliseJetonGare();
     }
     public TuileVille(int taille) {
         super();
