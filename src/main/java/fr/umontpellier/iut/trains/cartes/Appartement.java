@@ -9,6 +9,6 @@ public class Appartement extends CarteOr {
 
     @Override
     public void faireAction(Joueur joueur) {
-        joueur.prendreFerraille();
+        if (!joueur.getEffetsActifs().contains(TypesEffet.DEPOTOIR)) joueur.prendreFerraille();
     }
 }
