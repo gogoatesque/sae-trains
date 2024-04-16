@@ -8,7 +8,7 @@ public class VoieSouterraine extends Carte {
     }
 
     @Override
-    public void jouerCarte(Joueur Joueur) {
-        //effet passif
+    public void jouerCarte(Joueur joueur) {
+        joueur.ajouterEffet(TypesEffet.VOIESOUTERRAINE);
     }
 }
