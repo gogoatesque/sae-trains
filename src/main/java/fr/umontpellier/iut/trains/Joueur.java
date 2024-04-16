@@ -211,6 +211,11 @@ public class Joueur {
     }
 
     public void ajouterEffet(TypesEffet effet) {effetsActifs.add(effet);}
+
+    public HashSet<TypesEffet> getEffetsActifs() {
+        return effetsActifs;
+    }
+
     public void incrementerPointsRail(){pointsRails++;}
     public void decrementerPointsRail(){pointsRails--;}
     public void reinitialiserPointsRail(){pointsRails = 0;}
