@@ -19,6 +19,7 @@ public class TuileVille extends Tuile {
      */
     private int nbGaresPosees;
 
+    @Override
     public int getNbGaresMax() {
         return nbGaresMax;
     }
@@ -28,6 +29,7 @@ public class TuileVille extends Tuile {
         return nbGaresPosees;
     }
 
+    @Override
     public void poserGare(Joueur joueur) {
         nbGaresPosees++;
         gares.add(joueur);
@@ -36,5 +38,8 @@ public class TuileVille extends Tuile {
         super();
         this.nbGaresMax = taille;
         this.nbGaresPosees = 0;
+    }
+    public String getTypeTuile() {
+        return "Ville";
     }
 }
