@@ -9,7 +9,7 @@ public abstract class Carte {
     private final String nom;
     private final int cout;
 
-    private ArrayList<CategoriesCarte> categorie;
+    private ArrayList<CategoriesCarte> categorie = new ArrayList<>();
 
     /**
      * Constructeur simple
@@ -39,9 +39,7 @@ public abstract class Carte {
      * @param joueur le joueur qui joue la carte
      */
     public void jouer(Joueur joueur) {
-        joueur.enleverCarteMain(this);
         this.jouerCarte(joueur);
-        joueur.placerCarteEnJeu(this);
     }
 
     public abstract void jouerCarte(Joueur Joueur);
