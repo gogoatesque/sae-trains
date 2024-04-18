@@ -25,12 +25,13 @@ public class CentreDeRenseignements extends CarteRouge {
                 }
             }
         }
-        for(int i = 0; i < 3; i++) {
+        for(int i = listeChoix.size()-1; i >= 0 ; i--) {
             choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, null, false);
             for(Carte c : listeCartePiochee) {
                 if (c.getNom().equals(choix)) {
                     joueur.placerDansPioche(c);
                     listeChoix.remove(choix);
+                    break;
                 }
             }
         }
