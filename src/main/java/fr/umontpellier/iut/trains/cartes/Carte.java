@@ -69,16 +69,4 @@ public abstract class Carte {
         return 0;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Carte carte = (Carte) o;
-        return nom.equals(carte.nom);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nom);
-    }
 }
