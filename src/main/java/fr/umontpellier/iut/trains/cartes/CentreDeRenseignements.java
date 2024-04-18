@@ -16,22 +16,21 @@ public class CentreDeRenseignements extends CarteRouge {
         List<String> listeChoix = new ArrayList<>();
         for(Carte carte : listeCartePiochee) listeChoix.add(carte.getNom());
         String choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, null, true);
-        if (!choix.equals("")){
+        if (!choix.isEmpty()){
             for(Carte c : listeCartePiochee) {
-                if (c.getNom() == choix) {
+                if (c.getNom().equals(choix)) {
                     joueur.ajouterCarteEnMain(c);
                     listeChoix.remove(choix);
                     break;
                 }
             }
         }
-        for(int i = 0; i < listeChoix.size(); i++) {
+        for(int i = 0; i < 3; i++) {
             choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, null, false);
             for(Carte c : listeCartePiochee) {
-                if (c.getNom() == choix) {
+                if (c.getNom().equals(choix)) {
                     joueur.placerDansPioche(c);
                     listeChoix.remove(choix);
-                    break;
                 }
             }
         }
