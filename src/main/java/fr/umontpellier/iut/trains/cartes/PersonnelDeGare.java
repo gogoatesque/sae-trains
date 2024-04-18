@@ -21,7 +21,9 @@ public class PersonnelDeGare extends CarteRouge {
             case "piocher" -> joueur.piocher();
             case "argent" -> joueur.addArgent(1);
             case "ferraille" -> {
-                for (Carte carte : joueur.getMain()) {
+                ListeDeCartes main = joueur.getMain();
+                for (int i = main.size()-1; i >= 0; i--) {
+                    Carte carte = main.get(i);
                     if (carte.getCategorie().contains(CategoriesCarte.GRIS)) {
                         joueur.getJeu().ajouterDansLaReserve(carte);
                         joueur.enleverCarteMain(carte);
