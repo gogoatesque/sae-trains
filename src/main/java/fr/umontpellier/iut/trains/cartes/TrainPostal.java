@@ -19,8 +19,7 @@ public class TrainPostal extends CarteRouge {
         }
         String choisit = joueur.choisir("Choisissez une carte à défausser ou rien pour passer", choix, null, true);
         while(!choisit.isEmpty()) {
-            joueur.placerCarteDefausse(joueur.getMain().getCarte(choisit));
-            joueur.getMain().retirer(choisit);
+            joueur.defausserCarte(joueur.getMain().getCarte(choisit));
             choix.remove(choisit);
             joueur.addArgent(1);
             choisit = joueur.choisir("Choisissez une carte à défausser ou rien pour passer", choix, null, true);

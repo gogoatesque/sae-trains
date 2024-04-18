@@ -16,8 +16,8 @@ public class CabineDuConducteur extends CarteRouge {
         int nbCarte = 0;
         for (Carte carte : joueur.getMain()) {listeChoix.add(carte.getNom());}
         String choix = joueur.choisir("Choisissez vos cartes à défausser", listeChoix, null, true);
-        while(!choix.equals("")) {
-            joueur.placerCarteDefausse(joueur.getMain().getCarte(choix));
+        while(!choix.isEmpty()) {
+            joueur.defausserCarte(joueur.getMain().getCarte(choix));
             listeChoix.remove(choix);
             nbCarte++;
             choix = joueur.choisir("Choisissez vos cartes à défausser", listeChoix, null, true);

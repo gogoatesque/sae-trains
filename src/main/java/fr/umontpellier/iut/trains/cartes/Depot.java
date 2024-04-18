@@ -21,8 +21,7 @@ public class Depot extends CarteRouge {
         joueur.enleverCarteMain(joueur.getMain().getCarte(s));
         if (!joueur.getMain().isEmpty()) {
             s = joueur.choisir("Choisissez la carte à défausser", listeChoix, null, false);
-            joueur.placerCarteDefausse(joueur.getMain().getCarte(s));
-            joueur.enleverCarteMain(joueur.getMain().getCarte(s));
+            joueur.defausserCarte(joueur.getMain().getCarte(s));
         }
     }
 }
