@@ -18,9 +18,9 @@ public class Remorquage extends CarteRouge {
                 choix.add(carte.getNom());
             }
         }
-        Carte train = joueur.getCartesEnJeu().getCarte(joueur.choisir("Choisissez une cartes Train de votre défausse", choix, null, false));
+        Carte train = joueur.getDefausse().getCarte(joueur.choisir("Choisissez une cartes Train de votre défausse", choix, null, false));
         if (train != null) {
-            joueur.prendreCarteDefausse(train);
+            joueur.ajouterCarteEnMain(joueur.prendreCarteDefausse(train));
         }
     }
 }
