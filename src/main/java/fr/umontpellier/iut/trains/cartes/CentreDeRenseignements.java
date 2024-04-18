@@ -25,7 +25,7 @@ public class CentreDeRenseignements extends CarteRouge {
                 }
             }
         }
-        for(String s : listeChoix) {
+        for(int i = 0; i < listeChoix.size(); i++) {
             choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, null, false);
             for(Carte c : listeCartePiochee) {
                 if (c.getNom() == choix) {
@@ -33,7 +33,6 @@ public class CentreDeRenseignements extends CarteRouge {
                     listeChoix.remove(choix);
                     break;
                 }
-
             }
         }
 

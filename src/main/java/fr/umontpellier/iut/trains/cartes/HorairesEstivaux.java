@@ -18,6 +18,7 @@ public class HorairesEstivaux extends CarteRouge {
         String choix = joueur.choisir("Voulez vous écarter la carte et recevoir 3¥ ou ne rien faire ?", listeChoix, null, false);
         if (choix.equals("oui")) {
             joueur.addArgent(3);
+            joueur.enleverCarteEnJeu(this);
             joueur.ecarteCarte(this);
         }
     }

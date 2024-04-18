@@ -9,10 +9,12 @@ public class Decharge extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
-        for (Carte c : joueur.getMain()) {
-            if(c.getNom() == "Ferraille") {
-                joueur.getJeu().ajouterDansLaReserve(c);
+        ListeDeCartes main = joueur.getMain();
+        for (int i = main.size()-1; i >= 0; i--) {
+            Carte c = main.get(i);
+            if(c.getNom().equals("Ferraille")) {
                 joueur.enleverCarteMain(c);
+                joueur.getJeu().ajouterDansLaReserve(c);
             }
         }
     }
