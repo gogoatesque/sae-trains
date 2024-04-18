@@ -210,11 +210,8 @@ public class Joueur {
         return listeCarte;
     }
 
-    public void prendreCarteDefausse(Carte carte){
-        Carte cartePrise = defausse.retirer(carte.getNom());
-        if (cartePrise != null) {
-            ajouterCarteEnMain(cartePrise);
-        }
+    public Carte prendreCarteDefausse(Carte carte){
+        return defausse.retirer(carte.getNom());
     }
 
     public void ajouterEffet(TypesEffet effet) {effetsActifs.add(effet);}
