@@ -21,10 +21,11 @@ public class TrainDeMarchandises extends CarteRouge {
             }
         }
         String choisit = joueur.choisir("Tapez ferraille pour recycler ou rien pour passer", choix, null, true);
-        while(!choisit.equals("")){
+        while(!choisit.isEmpty()){
             choix.remove(choisit);
             Carte carteChoisit = joueur.getMain().getCarte(choisit);
             joueur.placerCarteMainDansReserve(carteChoisit);
+            joueur.addArgent(1);
             choisit = joueur.choisir("Tapez ferraille pour recycler ou rien pour passer", choix, null, true);
         }
     }
