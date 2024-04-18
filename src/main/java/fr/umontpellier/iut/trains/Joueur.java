@@ -246,6 +246,11 @@ public class Joueur {
         defausse.add(carte);
     }
 
+    public void defausserCarte(Carte carte){
+        main.remove(carte);
+        placerCarteDefausse(carte);
+    }
+
     /*Ajoute une carte au dessus de la pioche*/
     public void placerDansPioche(Carte carte) {
         pioche.add(0, carte);
