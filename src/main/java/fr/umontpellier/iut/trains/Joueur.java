@@ -58,7 +58,15 @@ public class Joueur {
     private CouleurJoueur couleur;
 
     private int pointsVictoire;
+    /**
+     * Nombre de points de victoire du joueur
+     */
     private HashSet<TypesEffet> effetsActifs;
+    /**
+     * Liste des effets actifs pendant ce tour
+     */
+
+
     public Joueur(Jeu jeu, String nom, CouleurJoueur couleur) {
         this.jeu = jeu;
         this.nom = nom;
@@ -148,8 +156,7 @@ public class Joueur {
      * @return le score total du joueur
      */
     public int getScoreTotal() {
-        // À FAIRE
-        return 0;
+        return pointsVictoire;
     }
 
     /**
