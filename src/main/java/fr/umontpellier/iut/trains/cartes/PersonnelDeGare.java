@@ -15,10 +15,11 @@ public class PersonnelDeGare extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
+
         List<String> choix = new ArrayList<>(Arrays.asList("piocher", "argent", "ferraille"));
         String action = joueur.choisir("Choisissez entre 'piocher', 'argent' et 'ferraille'", choix, null, false);
         switch (action) {
-            case "piocher" -> joueur.piocher();
+            case "piocher" -> joueur.ajouterCarteEnMain(joueur.piocher());
             case "argent" -> joueur.addArgent(1);
             case "ferraille" -> {
                 ListeDeCartes main = joueur.getMain();
