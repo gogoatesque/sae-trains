@@ -300,6 +300,12 @@ public class Joueur {
                 // ajoute les noms des cartes dans la réserve préfixés de "ACHAT:"
                 choixPossibles.add("ACHAT:" + nomCarte);
             }
+            if (pointsRails > 0) {
+                for (int i = 0; i < 76; i++) {
+                    //ajoute les tuiles pour poser des rails
+                    choixPossibles.add("TUILE:" + i);
+                }
+            }
             // Choix de l'action à réaliser
             String choix = choisir(String.format("Tour de %s", this.nom), choixPossibles, null, true);
 
@@ -308,10 +314,13 @@ public class Joueur {
                 String nomCarte = choix.split(":")[1];
                 Carte carte = jeu.prendreDansLaReserve(nomCarte);
                 if (carte != null) {
-                    log("Reçoit " + carte); // affichage dans le log
-                    cartesRecues.add(carte);
+                    acheterCarte(nomCarte);
                 }
-            } else if (choix.equals("")) {
+            }
+            /*else if (choix.startsWith("TUILE:")) {
+
+            }*/
+            else if (choix.equals("")) {
                 // terminer le tour
                 finTour = true;
             } else {
@@ -452,9 +461,11 @@ public class Joueur {
         Carte carte = jeu.prendreDansLaReserve(nomCarte);
         if (argent>= carte.getCout()){
             addArgent(-carte.getCout());
+            log("Reçoit " + carte);
         }
         else {
             jeu.ajouterDansLaReserve(carte);
+            log("Ne peut pas acheter " + carte);
         }
 
     }
