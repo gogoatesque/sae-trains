@@ -12,10 +12,11 @@ public class CentreDeControle extends CarteRouge {
 
     @Override
     public void faireAction(Joueur joueur) {
+        joueur.ajouterCarteEnMain(joueur.piocher());
         List<String> listeChoix = FabriqueListeDeCartes.getToutesLesCartes();
         String choix = joueur.choisir("Choisissez une carte", listeChoix, null, false);
         Carte carte = joueur.piocher();
-        if (carte.getNom() == choix) {
+        if (carte.getNom().equals(choix)) {
             joueur.ajouterCarteEnMain(carte);
         }
         else {
