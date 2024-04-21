@@ -2,13 +2,13 @@ package fr.umontpellier.iut.trains.cartes;
 
 import fr.umontpellier.iut.trains.Joueur;
 
-public class Viaduc extends Carte {
+public class Viaduc extends CarteVerte {
     public Viaduc() {
         super("Viaduc",5);
     }
 
     @Override
-    public void jouerCarte(Joueur joueur) {
+    public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.VIADUC);
     }
 }
