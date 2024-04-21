@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 
 import fr.umontpellier.iut.trains.Joueur;
+import fr.umontpellier.iut.trains.cartes.TypesEffet;
 
 public abstract class Tuile {
     /**
@@ -79,6 +80,10 @@ public abstract class Tuile {
         tuile.voisines.remove(this);
     }
 
+    public ArrayList<Tuile> getVoisines() {
+        return voisines;
+    }
+
     /**
      * @return le nombre de jetons gare posés sur la tuile. Par défaut la fonction
      *         renvoie 0 car on ne peut pas poser de jeton gare sur une tuile
@@ -113,4 +118,13 @@ public abstract class Tuile {
     public abstract String getTypeTuile();
 
     public void poserGare(Joueur joueur){}
+
+    public int coutPoseRail(Joueur joueur){
+        if (joueur.getEffetsActifs().contains(TypesEffet.VOIESOUTERRAINE) || joueur.getEffetsActifs().contains(TypesEffet.COOPERATION)){
+            return 0;
+        }
+        else {
+            return rails.size();
+        }
+    }
 }

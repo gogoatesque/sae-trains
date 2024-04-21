@@ -323,10 +323,8 @@ public class Jeu implements Runnable {
                 Map.entry("reserve", listeReserve));
     }
 
-    public void choisirCaseEtAjouterRail(Joueur joueur){   //primitive
-        List<String> choix = new ArrayList<>();
-        for (int i=0 ; i<76 ; i++){choix.add(Integer.toString(i));}
-        Tuile tuile = tuiles.get(Integer.parseInt(joueur.choisir("Choisissez une case où placer un rail",choix,null,false)));
-        tuile.ajouterRail(joueur);
+    public void AjouterRail(int indexTuile){   //(ajouter cout)
+        Tuile tuile = tuiles.get(indexTuile);
+        tuile.ajouterRail(joueurCourant);
     }
 }

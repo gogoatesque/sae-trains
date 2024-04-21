@@ -1,6 +1,7 @@
 package fr.umontpellier.iut.trains.plateau;
 
 import fr.umontpellier.iut.trains.Joueur;
+import fr.umontpellier.iut.trains.cartes.TypesEffet;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -42,5 +43,18 @@ public class TuileVille extends Tuile {
     }
     public String getTypeTuile() {
         return "Ville";
+    }
+
+    @Override
+    public int coutPoseRail(Joueur joueur) {
+        if (joueur.getEffetsActifs().contains(TypesEffet.VOIESOUTERRAINE)){
+            return super.coutPoseRail(joueur);
+        }
+        else if (joueur.getEffetsActifs().contains(TypesEffet.VIADUC)){
+            return super.coutPoseRail(joueur);
+        }
+        else{
+            return super.coutPoseRail(joueur)+1+getNbGares();
+        }
     }
 }
