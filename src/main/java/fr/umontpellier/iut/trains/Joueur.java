@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 import fr.umontpellier.iut.trains.cartes.*;
+import fr.umontpellier.iut.trains.plateau.Tuile;
 
 public class Joueur {
     /**
@@ -264,6 +265,8 @@ public class Joueur {
         jeu.getCartesEcartees().add(carte);
     }
 
+
+
     /**
      * Joue un tour complet du joueur
      * <p>
@@ -309,14 +312,14 @@ public class Joueur {
                 // ajoute les noms de toutes les cartes en main
                 choixPossibles.add(c.getNom());
             }
-            for (String nomCarte : jeu.getReserve().keySet()) {
-                // ajoute les noms des cartes dans la réserve préfixés de "ACHAT:"
+            for (String nomCarte : jeu.getReserve().keySet().stream().filter(pile -> !jeu.getReserve().get(pile).isEmpty() && jeu.getReserve().get(pile).get(0).getCout()<=argent).toList()){
+                // ajoute les noms des cartes de piles non-vide de la réserve préfixés de "ACHAT:"
                 choixPossibles.add("ACHAT:" + nomCarte);
             }
             if (pointsRails > 0) {
-                for (int i = 0; i < 76; i++) {
+                for (int indexTuile: tuilePoseRailPossible()) {
                     //ajoute les tuiles pour poser des rails
-                    choixPossibles.add("TUILE:" + i);
+                    choixPossibles.add("TUILE:" + indexTuile);
                 }
             }
             // Choix de l'action à réaliser
@@ -325,15 +328,12 @@ public class Joueur {
             if (choix.startsWith("ACHAT:")) {
                 // prendre une carte dans la réserve
                 String nomCarte = choix.split(":")[1];
-                Carte carte = jeu.prendreDansLaReserve(nomCarte);
-                if (carte != null) {
-                    acheterCarte(nomCarte);
-                }
+                acheterCarte(nomCarte);
             }
-            /*else if (choix.startsWith("TUILE:")) {
-
-            }*/
-            else if (choix.equals("")) {
+            else if (choix.startsWith("TUILE:")) {
+                poserRail(Integer.parseInt(choix.split(":")[1]));
+            }
+            else if (choix.isEmpty()) {
                 // terminer le tour
                 finTour = true;
             } else {
@@ -356,6 +356,31 @@ public class Joueur {
         reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
         effetsActifs.clear();
+    }
+
+    private ArrayList<Integer> tuilePoseRailPossible() {
+        ArrayList<Integer> tuilesPossibles = new ArrayList<>();
+        List<Tuile> tuiles = getJeu().getTuiles();
+        for (int i = 0; i < 76; i++) {
+            Tuile tuile = tuiles.get(i);
+
+            if (!tuile.getTypeTuile().equals("Mer")){
+                if (!tuile.hasRail(this)){
+
+                    for (Tuile tuilesVoisines : tuile.getVoisines()){
+                        if (tuilesVoisines.hasRail(this)){
+                            if (tuile.coutPoseRail(this) <= argent) {
+                                tuilesPossibles.add(i);
+                                break;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+        return tuilesPossibles;
     }
 
     /**
@@ -472,15 +497,21 @@ public class Joueur {
 
     public void acheterCarte(String nomCarte){
         Carte carte = jeu.prendreDansLaReserve(nomCarte);
-        if (argent>= carte.getCout()){
-            addArgent(-carte.getCout());
-            log("Reçoit " + carte);
-        }
-        else {
-            jeu.ajouterDansLaReserve(carte);
-            log("Ne peut pas acheter " + carte);
+        addArgent(-carte.getCout());
+        addCarteRecue(carte);
+
+    }
+
+    public void poserRail(int indexRail){
+        Tuile tuile = jeu.getTuile(indexRail);
+        addArgent(-tuile.coutPoseRail(this));
+        if (!getEffetsActifs().contains(TypesEffet.COOPERATION) && !getEffetsActifs().contains(TypesEffet.DEPOTOIR)){
+            if (!tuile.estVide()){
+                prendreFerraille();
+            }
         }
 
+        jeu.AjouterRail(indexRail);
     }
 
     /**
