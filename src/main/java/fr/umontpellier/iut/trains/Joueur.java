@@ -104,6 +104,10 @@ public class Joueur {
         return main;
     }
 
+    public int getNbJetonsRails() {
+        return nbJetonsRails;
+    }
+
     public int getArgent() {
         return argent;
     }
@@ -174,7 +178,7 @@ public class Joueur {
             }
             else{
                 pioche.addAll(defausse);
-                defausse.removeAll(defausse);
+                defausse.clear();
                 pioche.melanger();
             }
         }
