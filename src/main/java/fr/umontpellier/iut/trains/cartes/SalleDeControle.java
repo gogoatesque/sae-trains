@@ -4,7 +4,7 @@ import fr.umontpellier.iut.trains.Joueur;
 
 public class SalleDeControle extends CarteRouge {
     public SalleDeControle() {
-        super("Salle de contrôle",3,0);
+        super("Salle de contrôle",7,0);
     }
 
     @Override

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class Depot extends CarteRouge {
     public Depot() {
-        super("Dépôt",2,1);
+        super("Dépôt",3,1);
     }
 
     @Override
