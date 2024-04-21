@@ -214,8 +214,17 @@ public class Jeu implements Runnable {
      * @return {@code true} si la partie est finie, {@code false} sinon
      */
     public boolean estFini() {
-        // À FAIRE: réécrire cette méthode
-        return false;
+        return nbJetonsGare == 0 || joueurCourant.getNbJetonsRails() == 0 || nbPilesVidesSaufFerraille() == 4;
+    }
+
+    private int nbPilesVidesSaufFerraille() {
+        int nbPileVide = 0;
+        for (String pile : reserve.keySet()){
+            if (!pile.equals("Ferraille") && reserve.get(pile).isEmpty()){
+                nbPileVide += 1;
+            }
+        }
+        return nbPileVide;
     }
 
     /**
