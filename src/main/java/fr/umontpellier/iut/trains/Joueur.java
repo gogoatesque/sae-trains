@@ -1,11 +1,6 @@
 package fr.umontpellier.iut.trains;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 
 import fr.umontpellier.iut.trains.cartes.*;
 import fr.umontpellier.iut.trains.plateau.Tuile;
@@ -492,18 +487,32 @@ public class Joueur {
 
     public void prendreFerraille() {
         Carte ferraille = jeu.prendreDansLaReserve("Ferraille");
-        if (ferraille != null) cartesRecues.add(ferraille);
+        if (ferraille != null){
+           addCarteRecue(ferraille);
+        }
     }
 
     public void acheterCarte(String nomCarte){
         Carte carte = jeu.prendreDansLaReserve(nomCarte);
         addArgent(-carte.getCout());
-        addCarteRecue(carte);
-
+        if (effetsActifs.contains(TypesEffet.TRAINMATINAL)){
+            List <String> choix = Arrays.asList("oui","non");
+            String reponse = choisir("Voulez-vous placer cette carte au début de la pioche ?",choix,null,false);
+            if (reponse.equals("oui")){
+                placerDansPioche(carte);
+            }
+            else{
+                addCarteRecue(carte);
+            }
+        }
+        else{
+            addCarteRecue(carte);
+        }
     }
 
     public void poserRail(int indexRail){
         Tuile tuile = jeu.getTuile(indexRail);
+        decrementerPointsRail();
         addArgent(-tuile.coutPoseRail(this));
         if (!getEffetsActifs().contains(TypesEffet.COOPERATION) && !getEffetsActifs().contains(TypesEffet.DEPOTOIR)){
             if (!tuile.estVide()){
