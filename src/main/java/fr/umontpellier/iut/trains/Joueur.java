@@ -353,10 +353,10 @@ public class Joueur {
         effetsActifs.clear();
     }
 
-    protected ArrayList<Integer> tuilePoseRailPossible() {
+    private ArrayList<Integer> tuilePoseRailPossible() {
         ArrayList<Integer> tuilesPossibles = new ArrayList<>();
         List<Tuile> tuiles = getJeu().getTuiles();
-        for (int i = 0; i < 76; i++) {
+        for (int i = 0; i < tuiles.size(); i++) {
             Tuile tuile = tuiles.get(i);
 
             if (!tuile.getTypeTuile().equals("Mer")){
