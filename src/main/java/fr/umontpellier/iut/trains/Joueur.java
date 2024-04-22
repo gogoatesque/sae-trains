@@ -339,6 +339,7 @@ public class Joueur {
                     //recycler
                     if (peutRecycler){
                         recycler();
+                        finTour = true;
                     }
                     else{
                         log("Vous ne pouvez pas jouer les cartes ferrailles");
