@@ -126,6 +126,13 @@ public class Jeu implements Runnable {
     public ListeDeCartes getCartesEcartees() {
         return cartesEcartees;
     }
+    public ArrayList<Integer> tuilesPossiblesInit() {
+        ArrayList<Integer> tuilesPossibles = new ArrayList<>();
+        for (int i = 0; i < tuiles.size(); i++) {
+            if (!tuiles.get(i).getTypeTuile().equals("Etoile") && !tuiles.get(i).getTypeTuile().equals("Mer")) tuilesPossibles.add(i);
+        }
+        return tuilesPossibles;
+    }
 
     /**
      * Renvoie un ensemble de tous les noms des cartes en jeu.
@@ -195,7 +202,7 @@ public class Jeu implements Runnable {
      */
     public void run() {
         // initialisation (chaque joueur choisit une position de départ)
-        ArrayList<Integer> tuilesPossibles = joueurs.get(0).tuilePoseRailPossible();
+        ArrayList<Integer> tuilesPossibles = tuilesPossiblesInit();
         List<String> listeChoix = new ArrayList<>();
         for (Integer nombre : tuilesPossibles) {listeChoix.add("TUILE:" + nombre);}
         for (Joueur joueur : joueurs) {
