@@ -57,4 +57,15 @@ public class TuileVille extends Tuile {
             return super.coutPoseRail(joueur)+1+getNbGares();
         }
     }
+
+    // renvoie le nombre de points de victoire que rapporte la ville
+    @Override
+    public int getValeur() {
+        if (nbGaresPosees < 3){
+            return 2*nbGaresPosees;
+        }
+        else{
+            return 8;
+        }
+    }
 }

@@ -127,4 +127,9 @@ public abstract class Tuile {
             return rails.size();
         }
     }
+
+    // la valeur en point de victoire de la tuile
+    public int getValeur() {
+        return 0;
+    }
 }

@@ -30,4 +30,9 @@ public class TuileEtoile extends Tuile {
             return super.coutPoseRail(joueur)+valeur;
         }
     }
+
+    @Override
+    public int getValeur() {
+        return valeur;
+    }
 }
