@@ -552,6 +552,9 @@ public class Joueur {
     public void acheterCarte(String nomCarte){
         Carte carte = jeu.prendreDansLaReserve(nomCarte);
         addArgent(-carte.getCout());
+        if (carte.getCategorie().contains(CategoriesCarte.OR)){
+            prendreFerraille();
+        }
         if (effetsActifs.contains(TypesEffet.TRAINMATINAL)){
             List <String> choix = Arrays.asList("oui","non");
             String reponse = choisir("Voulez-vous placer cette carte au début de la pioche ?",choix,null,false);
