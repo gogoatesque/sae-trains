@@ -582,7 +582,7 @@ public class Joueur {
             }
         }
 
-        jeu.AjouterRail(indexRail);
+        jeu.AjouterRail(this, indexRail);
     }
 
     /**

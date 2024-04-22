@@ -208,7 +208,7 @@ public class Jeu implements Runnable {
         for (int i = 0; i < joueurs.size(); i++) {
             String choix = joueurCourant.choisir("Joueur : " + joueurCourant.getNom() + ", choisissez votre case de départ", listeChoix, null, false);
             int numeroTuile = Integer.parseInt(choix.substring(6));
-            AjouterRail(numeroTuile);
+            AjouterRail(joueurCourant, numeroTuile);
             listeChoix.remove(choix);
             passeAuJoueurSuivant();
         }
@@ -339,9 +339,9 @@ public class Jeu implements Runnable {
                 Map.entry("reserve", listeReserve));
     }
 
-    public void AjouterRail(int indexTuile){
-        joueurCourant.decrementerJetonsRail();
+    public void AjouterRail(Joueur joueur, int indexTuile){
+        joueur.decrementerJetonsRail();
         Tuile tuile = tuiles.get(indexTuile);
-        tuile.ajouterRail(joueurCourant);
+        tuile.ajouterRail(joueur);
     }
 }
