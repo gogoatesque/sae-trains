@@ -16,7 +16,9 @@ public abstract class CarteOr extends Carte{
         faireAction(joueur);
     }
 
-    public abstract void faireAction(Joueur joueur);
+    public void faireAction(Joueur joueur){
+        joueur.addPv(getPv());
+    }
 
     public int getPv() {
         return pv;

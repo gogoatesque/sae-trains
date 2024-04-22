@@ -6,9 +6,4 @@ public class Immeuble extends CarteOr {
     public Immeuble() {
         super("Immeuble", 5, 2);
     }
-
-    @Override
-    public void faireAction(Joueur joueur) {
-        joueur.addPv(getPv());
-    }
 }
