@@ -300,6 +300,8 @@ public class Joueur {
         // Initialisation
         jeu.log("<div class=\"tour\">Tour de " + toLog() + "</div>");
 
+        boolean peutRecycler = true;
+
         boolean finTour = false;
         // Boucle principale
         while (!finTour) {
@@ -333,11 +335,23 @@ public class Joueur {
                 // terminer le tour
                 finTour = true;
             } else {
-                // jouer une carte de la main
-                Carte carte = main.retirer(choix);
-                log("Joue " + carte); // affichage dans le log
-                cartesEnJeu.add(carte); // mettre la carte en jeu
-                carte.jouer(this); // exécuter l'action de la carte
+                if (choix.equals("Ferraille")){
+                    //recycler
+                    if (peutRecycler){
+                        recycler();
+                    }
+                    else{
+                        log("Vous ne pouvez pas jouer les cartes ferrailles");
+                    }
+                }
+                else {
+                    peutRecycler = false;
+                    // jouer une carte de la main
+                    Carte carte = main.retirer(choix);
+                    log("Joue " + carte); // affichage dans le log
+                    cartesEnJeu.add(carte); // mettre la carte en jeu
+                    carte.jouer(this); // exécuter l'action de la carte}
+                }
             }
         }
         // Finalisation
@@ -377,6 +391,16 @@ public class Joueur {
 
         }
         return tuilesPossibles;
+    }
+
+    public void recycler(){
+        for (Iterator<Carte> it = main.iterator(); it.hasNext();) {
+            Carte c = it.next();
+            if(c.getNom().equals("Ferraille")) {
+                it.remove();
+                jeu.ajouterDansLaReserve(c);
+            }
+        }
     }
 
     /**
