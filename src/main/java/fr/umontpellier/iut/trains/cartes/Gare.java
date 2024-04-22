@@ -16,7 +16,7 @@ public class Gare extends Carte {
     public void jouerCarte(Joueur joueur) {
         if (joueur.getJeu().getNbJetonsGare() != 0) {
             List<String> listeChoix = new ArrayList<>();
-            for (int i = 0; i < 76; i++) {
+            for (int i = 0; i < joueur.getJeu().getTuiles().size(); i++) {
                 Tuile tuileVille = joueur.getJeu().getTuile(i);
                 if (tuileVille.getTypeTuile() == "Ville" && tuileVille.getNbGares() < tuileVille.getNbGaresMax()) {
                     listeChoix.add("TUILE:" + i);
