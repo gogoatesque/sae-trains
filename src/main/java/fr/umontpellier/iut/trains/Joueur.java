@@ -573,7 +573,6 @@ public class Joueur {
     public void poserRail(int indexRail){
         Tuile tuile = jeu.getTuile(indexRail);
         decrementerPointsRail();
-        decrementerJetonsRail();
         addArgent(-tuile.coutPoseRail(this));
         if (!getEffetsActifs().contains(TypesEffet.COOPERATION) && !getEffetsActifs().contains(TypesEffet.DEPOTOIR)){
             if (!tuile.estVide()){

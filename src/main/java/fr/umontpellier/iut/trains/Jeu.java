@@ -339,7 +339,8 @@ public class Jeu implements Runnable {
                 Map.entry("reserve", listeReserve));
     }
 
-    public void AjouterRail(int indexTuile){   //(ajouter cout)
+    public void AjouterRail(int indexTuile){
+        joueurCourant.decrementerJetonsRail();
         Tuile tuile = tuiles.get(indexTuile);
         tuile.ajouterRail(joueurCourant);
     }
