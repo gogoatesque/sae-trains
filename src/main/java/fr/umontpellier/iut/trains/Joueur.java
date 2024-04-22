@@ -543,9 +543,11 @@ public class Joueur {
     }
 
     public void prendreFerraille() {
-        Carte ferraille = jeu.prendreDansLaReserve("Ferraille");
-        if (ferraille != null){
-           addCarteRecue(ferraille);
+        if(!getEffetsActifs().contains(TypesEffet.DEPOTOIR)) {
+            Carte ferraille = jeu.prendreDansLaReserve("Ferraille");
+            if (ferraille != null) {
+                addCarteRecue(ferraille);
+            }
         }
     }
 
@@ -574,7 +576,7 @@ public class Joueur {
         Tuile tuile = jeu.getTuile(indexRail);
         decrementerPointsRail();
         addArgent(-tuile.coutPoseRail(this));
-        if (!getEffetsActifs().contains(TypesEffet.COOPERATION) && !getEffetsActifs().contains(TypesEffet.DEPOTOIR)){
+        if (!getEffetsActifs().contains(TypesEffet.COOPERATION)){
             if (!tuile.estVide()){
                 prendreFerraille();
             }

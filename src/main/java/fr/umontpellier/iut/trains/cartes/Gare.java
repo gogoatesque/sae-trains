@@ -27,9 +27,6 @@ public class Gare extends Carte {
             Tuile tuileChoisie = joueur.getJeu().getTuile(numeroTuile);
             tuileChoisie.poserGare(joueur);
         }
-        if(!joueur.getEffetsActifs().contains(TypesEffet.DEPOTOIR)) {
-            Carte ferraille = joueur.getJeu().prendreDansLaReserve("Ferraille");
-            if (ferraille != null) joueur.addCarteRecue(ferraille);
-        }
+        joueur.prendreFerraille();
     }
 }
