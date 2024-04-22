@@ -353,7 +353,7 @@ public class Joueur {
         effetsActifs.clear();
     }
 
-    private ArrayList<Integer> tuilePoseRailPossible() {
+    protected ArrayList<Integer> tuilePoseRailPossible() {
         ArrayList<Integer> tuilesPossibles = new ArrayList<>();
         List<Tuile> tuiles = getJeu().getTuiles();
         for (int i = 0; i < 76; i++) {
