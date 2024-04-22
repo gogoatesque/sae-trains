@@ -156,7 +156,38 @@ public class Joueur {
      * @return le score total du joueur
      */
     public int getScoreTotal() {
-        return pointsVictoire;
+        // score courant
+        int total = pointsVictoire;
+
+        // carte or en main
+        for (Carte carteMain : main){
+            if (carteMain.getCategorie().contains(CategoriesCarte.OR)){
+                total += carteMain.getPv();
+            }
+        }
+        // carte or dans la pioche
+        for (Carte cartePioche : pioche){
+            if (cartePioche.getCategorie().contains(CategoriesCarte.OR)){
+                total += cartePioche.getPv();
+            }
+        }
+        // carte or dans la défausse
+        for (Carte carteDefausse : defausse){
+            if (carteDefausse.getCategorie().contains(CategoriesCarte.OR)){
+                total += carteDefausse.getPv();
+            }
+        }
+
+        for (Tuile tuile : jeu.getTuiles()){
+            if (tuile.hasRail(this)){
+                // lieu éloigné ou ville
+                if (tuile.getTypeTuile().equals("Etoile") || tuile.getTypeTuile().equals("Ville")){
+                    total += tuile.getValeur();
+                }
+            }
+        }
+
+        return total;
     }
 
     /**
