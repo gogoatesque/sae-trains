@@ -310,8 +310,8 @@ public class Joueur {
                 // ajoute les noms de toutes les cartes en main
                 choixPossibles.add(c.getNom());
             }
-            for (String nomCarte : jeu.getReserve().keySet().stream().filter(pile -> !jeu.getReserve().get(pile).isEmpty() && jeu.getReserve().get(pile).get(0).getCout()<=argent).toList()){
-                // ajoute les noms des cartes de piles non-vide de la réserve préfixés de "ACHAT:"
+            for (String nomCarte : jeu.getReserve().keySet().stream().filter(pile -> !pile.equals("Ferraille") &&!jeu.getReserve().get(pile).isEmpty() && jeu.getReserve().get(pile).get(0).getCout()<=argent).toList()){
+                // ajoute les noms des cartes achetables de la réserve préfixés de "ACHAT:"
                 choixPossibles.add("ACHAT:" + nomCarte);
             }
             if (pointsRails > 0) {
