@@ -208,7 +208,7 @@ public class Jeu implements Runnable {
         for (int i = 0; i < joueurs.size(); i++) {
             String choix = joueurCourant.choisir("Joueur : " + joueurCourant.getNom() + ", choisissez votre case de départ", listeChoix, null, false);
             int numeroTuile = Integer.parseInt(choix.substring(6));
-            joueurCourant.poserRail(numeroTuile);
+            AjouterRail(numeroTuile);
             listeChoix.remove(choix);
             passeAuJoueurSuivant();
         }
