@@ -205,11 +205,12 @@ public class Jeu implements Runnable {
         ArrayList<Integer> tuilesPossibles = tuilesPossiblesInit();
         List<String> listeChoix = new ArrayList<>();
         for (Integer nombre : tuilesPossibles) {listeChoix.add("TUILE:" + nombre);}
-        for (Joueur joueur : joueurs) {
-            String choix = joueur.choisir("Choisissez votre case de départ", listeChoix, null, false);
+        for (int i = 0; i < joueurs.size(); i++) {
+            String choix = joueurCourant.choisir("Joueur : " + joueurCourant.getNom() + ", choisissez votre case de départ", listeChoix, null, false);
             int numeroTuile = Integer.parseInt(choix.substring(6));
-            joueur.poserRail(numeroTuile);
+            joueurCourant.poserRail(numeroTuile);
             listeChoix.remove(choix);
+            passeAuJoueurSuivant();
         }
         // tours des joueurs jusqu'à une condition de fin
         while (!estFini()) {
