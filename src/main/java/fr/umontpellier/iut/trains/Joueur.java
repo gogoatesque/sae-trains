@@ -223,6 +223,7 @@ public class Joueur {
     public void incrementerPointsRail(){pointsRails++;}
     public void decrementerPointsRail(){pointsRails--;}
     public void reinitialiserPointsRail(){pointsRails = 0;}
+    public void decrementerJetonsRail(){nbJetonsRails--;}
     public void enleverCarteMain(Carte carte) {
         main.remove(carte);
     }
@@ -513,6 +514,7 @@ public class Joueur {
     public void poserRail(int indexRail){
         Tuile tuile = jeu.getTuile(indexRail);
         decrementerPointsRail();
+        decrementerJetonsRail();
         addArgent(-tuile.coutPoseRail(this));
         if (!getEffetsActifs().contains(TypesEffet.COOPERATION) && !getEffetsActifs().contains(TypesEffet.DEPOTOIR)){
             if (!tuile.estVide()){
