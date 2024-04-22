@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.trains;
 
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -194,8 +195,15 @@ public class Jeu implements Runnable {
      */
     public void run() {
         // initialisation (chaque joueur choisit une position de départ)
-        // À FAIRE: compléter la partie initialisation
-
+        ArrayList<Integer> tuilesPossibles = joueurs.get(0).tuilePoseRailPossible();
+        List<String> listeChoix = new ArrayList<>();
+        for (Integer nombre : tuilesPossibles) {listeChoix.add("TUILE:" + nombre);}
+        for (Joueur joueur : joueurs) {
+            String choix = joueur.choisir("Choisissez votre case de départ", listeChoix, null, false);
+            int numeroTuile = Integer.parseInt(choix.substring(6));
+            joueur.poserRail(numeroTuile);
+            listeChoix.remove(choix);
+        }
         // tours des joueurs jusqu'à une condition de fin
         while (!estFini()) {
             joueurCourant.jouerTour();
