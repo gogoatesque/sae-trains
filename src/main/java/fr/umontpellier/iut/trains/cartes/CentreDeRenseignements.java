@@ -20,7 +20,7 @@ public class CentreDeRenseignements extends CarteRouge {
             listeChoix.add(carte.getNom());
             boutons.add(new Bouton(carte.getNom()));
         }
-        String choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, null, true);
+        String choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, boutons, true);
         if (!choix.isEmpty()){
             for(Carte c : listeCartePiochee) {
                 if (c.getNom().equals(choix)) {
@@ -33,7 +33,7 @@ public class CentreDeRenseignements extends CarteRouge {
         }
 
         for(int i = listeChoix.size()-1; i >= 0 ; i--) {
-            choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, null, false);
+            choix = joueur.choisir("Choisissez la carte que vous voulez enlever", listeChoix, boutons, false);
             for(Carte c : listeCartePiochee) {
                 if (c.getNom().equals(choix)) {
                     joueur.placerDansPioche(c);
