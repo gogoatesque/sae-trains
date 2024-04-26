@@ -13,7 +13,6 @@ public abstract class CarteOr extends Carte{
 
     @Override
     public void jouerCarte(Joueur joueur) {
-        faireAction(joueur);
     }
 
     public void faireAction(Joueur joueur){

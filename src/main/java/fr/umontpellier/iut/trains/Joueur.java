@@ -553,6 +553,7 @@ public class Joueur {
         addArgent(-carte.getCout());
         if (carte.getCategorie().contains(CategoriesCarte.OR)){
             prendreFerraille();
+            carte.jouerCarte(this);
         }
         if (effetsActifs.contains(TypesEffet.TRAINMATINAL)){
             List <String> choix = Arrays.asList("oui","non");
