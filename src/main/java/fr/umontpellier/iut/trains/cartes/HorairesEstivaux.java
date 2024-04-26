@@ -19,7 +19,7 @@ public class HorairesEstivaux extends CarteRouge {
         List<Bouton> boutons = new ArrayList<>();
         boutons.add(new Bouton("Écarter la carte", "oui"));
         boutons.add(new Bouton("Ne rien faire", "non"));
-        String choix = joueur.choisir("Voulez vous écarter la carte et recevoir 3¥ ou ne rien faire ?", listeChoix, null, false);
+        String choix = joueur.choisir("Voulez vous écarter la carte et recevoir 3¥ ou ne rien faire ?", listeChoix, boutons, false);
         if (choix.equals("oui")) {
             joueur.addArgent(3);
             joueur.enleverCarteEnJeu(this);
