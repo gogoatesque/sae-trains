@@ -231,7 +231,19 @@ public class Jeu implements Runnable {
      * @return {@code true} si la partie est finie, {@code false} sinon
      */
     public boolean estFini() {
-        return nbJetonsGare == 0 || joueurCourant.getNbJetonsRails() == 0 || nbPilesVidesSaufFerraille() == 4;
+        boolean fin = false;
+        for (Joueur j : joueurs) {
+            if (j.getNbJetonsRails() == 0) {
+                fin = true;
+                break;
+            }
+        }
+        /*Iterator it = joueurs.iterator();
+        while(!fin && it.hasNext()) {
+            Joueur j = it.next();
+            if (it.next())
+        }*/
+        return nbJetonsGare == 0 || nbPilesVidesSaufFerraille() == 4 || fin ;
     }
 
     private int nbPilesVidesSaufFerraille() {
