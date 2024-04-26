@@ -9,6 +9,7 @@ import fr.umontpellier.iut.trains.cartes.FabriqueListeDeCartes;
 import fr.umontpellier.iut.trains.cartes.ListeDeCartes;
 import fr.umontpellier.iut.trains.plateau.Plateau;
 import fr.umontpellier.iut.trains.plateau.Tuile;
+import fr.umontpellier.iut.trains.plateau.TypeTuile;
 
 public class Jeu implements Runnable {
     /**
@@ -129,7 +130,7 @@ public class Jeu implements Runnable {
     public ArrayList<Integer> tuilesPossiblesInit() {
         ArrayList<Integer> tuilesPossibles = new ArrayList<>();
         for (int i = 0; i < tuiles.size(); i++) {
-            if (!tuiles.get(i).getTypeTuile().equals("Etoile") && !tuiles.get(i).getTypeTuile().equals("Mer")) tuilesPossibles.add(i);
+            if (!tuiles.get(i).getTypeTuile().equals(TypeTuile.ETOILE) && !tuiles.get(i).getTypeTuile().equals(TypeTuile.MER)) tuilesPossibles.add(i);
         }
         return tuilesPossibles;
     }

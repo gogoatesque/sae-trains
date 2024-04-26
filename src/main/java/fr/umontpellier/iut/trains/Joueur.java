@@ -4,6 +4,7 @@ import java.util.*;
 
 import fr.umontpellier.iut.trains.cartes.*;
 import fr.umontpellier.iut.trains.plateau.Tuile;
+import fr.umontpellier.iut.trains.plateau.TypeTuile;
 
 public class Joueur {
     /**
@@ -181,7 +182,7 @@ public class Joueur {
         for (Tuile tuile : jeu.getTuiles()){
             if (tuile.hasRail(this)){
                 // lieu éloigné ou ville
-                if (tuile.getTypeTuile().equals("Etoile") || tuile.getTypeTuile().equals("Ville")){
+                if (tuile.getTypeTuile().equals(TypeTuile.ETOILE) || tuile.getTypeTuile().equals(TypeTuile.VILLE)){
                     total += tuile.getValeur();
                 }
             }
@@ -403,7 +404,7 @@ public class Joueur {
         for (int i = 0; i < tuiles.size(); i++) {
             Tuile tuile = tuiles.get(i);
 
-            if (!tuile.getTypeTuile().equals("Mer")){
+            if (!tuile.getTypeTuile().equals(TypeTuile.MER)){
                 if (!tuile.hasRail(this)){
 
                     for (Tuile tuilesVoisines : tuile.getVoisines()){
