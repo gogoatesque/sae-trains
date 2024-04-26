@@ -19,7 +19,7 @@ public class TuileVille extends Tuile {
      * Nombre de gares posées sur la tuile
      */
     private int nbGaresPosees;
-
+    private TypeTuile typeTuile = TypeTuile.VILLE;
     @Override
     public int getNbGaresMax() {
         return nbGaresMax;
@@ -41,8 +41,8 @@ public class TuileVille extends Tuile {
         this.nbGaresMax = taille;
         this.nbGaresPosees = 0;
     }
-    public String getTypeTuile() {
-        return "Ville";
+    public TypeTuile getTypeTuile() {
+        return typeTuile;
     }
 
     @Override

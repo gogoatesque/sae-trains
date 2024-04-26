@@ -2,7 +2,7 @@ package fr.umontpellier.iut.trains.cartes;
 
 import fr.umontpellier.iut.trains.Joueur;
 import fr.umontpellier.iut.trains.plateau.Tuile;
-import fr.umontpellier.iut.trains.plateau.TuileVille;
+import fr.umontpellier.iut.trains.plateau.TypeTuile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class Gare extends Carte {
             List<String> listeChoix = new ArrayList<>();
             for (int i = 0; i < joueur.getJeu().getTuiles().size(); i++) {
                 Tuile tuileVille = joueur.getJeu().getTuile(i);
-                if (tuileVille.getTypeTuile() == "Ville" && tuileVille.getNbGares() < tuileVille.getNbGaresMax()) {
+                if (tuileVille.getTypeTuile() == TypeTuile.VILLE && tuileVille.getNbGares() < tuileVille.getNbGaresMax()) {
                     listeChoix.add("TUILE:" + i);
                 }
             }

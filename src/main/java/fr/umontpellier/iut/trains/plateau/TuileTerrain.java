@@ -3,6 +3,8 @@ package fr.umontpellier.iut.trains.plateau;
 import fr.umontpellier.iut.trains.Joueur;
 import fr.umontpellier.iut.trains.cartes.TypesEffet;
 
+import java.lang.reflect.Type;
+
 /**
  * Classe représentant une tuile plaine, fleuve ou montagne.
  */
@@ -11,14 +13,15 @@ public class TuileTerrain extends Tuile {
      * Type de terrain de la tuile ({@code PLAINE}, {@code FLEUVE} ou {@code MONTAGNE})
      */
     private TypeTerrain type;
+    private TypeTuile typeTuile = TypeTuile.TERRAIN;
 
     public TuileTerrain(TypeTerrain type) {
         super();
         this.type = type;
     }
 
-    public String getTypeTuile() {
-        return "Terrain";
+    public TypeTuile getTypeTuile() {
+        return typeTuile;
     }
 
     @Override
