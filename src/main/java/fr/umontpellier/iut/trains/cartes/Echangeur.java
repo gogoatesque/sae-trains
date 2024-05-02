@@ -19,6 +19,7 @@ public class Echangeur extends CarteRouge {
         String s = joueur.choisir("Choisissez une carte Train à remettre sur la pioche", listeChoix, null, true);
         if (!s.equals("")) {
             Carte c = joueur.getCartesEnJeu().getCarte(s);
+            joueur.getJeu().log("Vous avez choisi : " + c.getNom());
             joueur.placerDansPioche(c);
             joueur.enleverCarteEnJeu(c);
         }

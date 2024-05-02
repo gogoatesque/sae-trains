@@ -19,6 +19,7 @@ public class CentreDeRenseignements extends CarteRouge {
         for(Carte carte : listeCartePiochee) {
             listeChoix.add(carte.getNom());
             boutons.add(new Bouton(carte.getNom()));
+            joueur.getJeu().log("Vous avez dévoilé : " + carte.getNom());
         }
         String choix = joueur.choisir("Choisissez la carte que vous voulez garder", listeChoix, boutons, true);
         if (!choix.isEmpty()){
@@ -27,6 +28,7 @@ public class CentreDeRenseignements extends CarteRouge {
                     joueur.ajouterCarteEnMain(c);
                     listeChoix.remove(choix);
                     boutons.remove(new Bouton(choix));
+                    joueur.getJeu().log("Vous avez gardé : " + c.getNom());
                     break;
                 }
             }
@@ -39,6 +41,7 @@ public class CentreDeRenseignements extends CarteRouge {
                     joueur.placerDansPioche(c);
                     listeChoix.remove(choix);
                     boutons.remove(new Bouton(choix));
+                    joueur.getJeu().log("Vous avez reposé : " + c.getNom());
                     break;
                 }
             }

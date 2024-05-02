@@ -111,6 +111,12 @@ public class Joueur {
 
     public void addArgent(int argent) {
         this.argent += argent;
+        if (argent < 0) {
+            getJeu().log("Vous avez perdu : " + (-argent));
+        }
+        else {
+            getJeu().log("Vous avez reçu : " + argent);
+        }
     }
 
     public void reinitialiserArgent() {argent = 0;}
@@ -210,7 +216,9 @@ public class Joueur {
                 pioche.melanger();
             }
         }
-        return pioche.remove(0);
+        Carte cpioche = pioche.remove(0);
+        getJeu().log("Vous avez pioché " + cpioche.getNom());
+        return cpioche;
     }
 
     /**
@@ -279,6 +287,7 @@ public class Joueur {
     public void defausserCarte(Carte carte){
         main.remove(carte);
         placerCarteDefausse(carte);
+        getJeu().log("Vous avez defausse " + carte.getNom());
     }
 
     /*Ajoute une carte au dessus de la pioche*/
@@ -431,6 +440,7 @@ public class Joueur {
                 jeu.ajouterDansLaReserve(c);
             }
         }
+        getJeu().log("Vous avez recyclé vos ferrailles");
     }
 
     /**
@@ -579,6 +589,9 @@ public class Joueur {
             if (!tuile.estVide()){
                 prendreFerraille();
             }
+        }
+        else {
+            getJeu().log("Pas de feraille grâce à l'effet coopération");
         }
 
         jeu.AjouterRail(this, indexRail);

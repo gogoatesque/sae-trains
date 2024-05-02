@@ -21,6 +21,7 @@ public class CabineDuConducteur extends CarteRouge {
             listeChoix.remove(choix);
             nbCarte++;
             choix = joueur.choisir("Choisissez vos cartes à défausser", listeChoix, null, true);
+            joueur.getJeu().log("Vous avez défaussé " + nbCarte + " carte(s)");
         }
         for(Carte carte : joueur.piocher(nbCarte)){
             joueur.ajouterCarteEnMain(carte);

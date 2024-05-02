@@ -23,5 +23,8 @@ public class ParcDAttractions extends CarteRouge {
         if (train != null) {
             joueur.addArgent(train.getValeur());
         }
+        else {
+            joueur.getJeu().log("Vous n'avez pas de cartes train en main");
+        }
     }
 }

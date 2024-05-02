@@ -10,5 +10,6 @@ public class Depotoir extends CarteRouge {
     @Override
     public void faireAction(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.DEPOTOIR);
+        joueur.getJeu().log("Vous avez activé l'effet dépotoir");
     }
 }

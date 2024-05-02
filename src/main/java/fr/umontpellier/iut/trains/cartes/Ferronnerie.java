@@ -10,5 +10,6 @@ public class Ferronnerie extends CarteRouge {
     @Override
     public void faireAction(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.FERRONERIE);
+        joueur.getJeu().log("Vous avez activé l'effet ferronerie");
     }
 }

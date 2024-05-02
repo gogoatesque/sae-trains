@@ -17,6 +17,12 @@ public class BureauDuChefDeGare extends CarteRouge {
             if (carte.getCategorie().contains(CategoriesCarte.ROUGE)) choix.add(carte.getNom());
         }
         Carte action = joueur.getMain().getCarte(joueur.choisir("Choisissez votre carte action", choix, null, false));
-        if (action != null) action.jouerCarte(joueur);
+        if (action != null) {
+            action.jouerCarte(joueur);
+            joueur.getJeu().log("Vous avez copié l'action de : " + action.getNom());
+        }
+        else {
+            joueur.getJeu().log("Vous n'avez pas de cartes action en main");
+        }
     }
 }

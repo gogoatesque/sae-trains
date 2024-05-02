@@ -10,5 +10,6 @@ public class PontEnAcier extends CarteVerte {
     @Override
     public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.PONTACIER);
+        joueur.getJeu().log("Vous avez activé l'effet pont en acier");
     }
 }

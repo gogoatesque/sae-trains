@@ -20,8 +20,15 @@ public class AtelierDeMaintenance extends CarteRouge {
         if(train != null) {
             Carte carte = joueur.getJeu().prendreDansLaReserve(train.getNom());
             if (carte != null) {
+                joueur.getJeu().log("Vous avez reçu : " + carte.getNom());
                 joueur.addCarteRecue(carte);
             }
+            else {
+                joueur.getJeu().log("Il n'y a pas assez de cartes dans la reserve");
+            }
+        }
+        else {
+            joueur.getJeu().log("Vous n'avez pas de carte train en main");
         }
     }
 }

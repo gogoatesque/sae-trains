@@ -33,6 +33,7 @@ public class PersonnelDeGare extends CarteRouge {
                     if (carte.getCategorie().contains(CategoriesCarte.GRIS)) {
                         joueur.getJeu().ajouterDansLaReserve(carte);
                         joueur.enleverCarteMain(carte);
+                        joueur.getJeu().log("Vous avez reçu une carte ferraille");
                         break;
                     }
                 }

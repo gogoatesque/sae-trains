@@ -121,6 +121,12 @@ public abstract class Tuile {
 
     public int coutPoseRail(Joueur joueur){
         if (joueur.getEffetsActifs().contains(TypesEffet.VOIESOUTERRAINE) || joueur.getEffetsActifs().contains(TypesEffet.COOPERATION)){
+            if (joueur.getEffetsActifs().contains(TypesEffet.VOIESOUTERRAINE)){
+                joueur.getJeu().log("Pas de surcoût grâce à voie souterraine");
+            }
+            else {
+                joueur.getJeu().log("Pas de surcoût grâce à coopération");
+            }
             return 0;
         }
         else {

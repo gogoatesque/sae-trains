@@ -20,9 +20,14 @@ public class HorairesTemporaires extends CarteRouge {
             if (carte.getCategorie().contains(CategoriesCarte.BLEU)) {
                 cpt++;
                 joueur.ajouterCarteEnMain(carte);
+                joueur.getJeu().log("Vous avez dévoilé une carte train, vous êtes à " + cpt + " cartes train");
             }
             else cartesPiochees.add(carte);
         }
-        for (Carte c : cartesPiochees) joueur.placerCarteDefausse(c);
+        for (Carte c : cartesPiochees) {
+            joueur.placerCarteDefausse(c);
+            joueur.getJeu().log("Vous avez défaussé : " + c.getNom());
+        }
+
     }
 }

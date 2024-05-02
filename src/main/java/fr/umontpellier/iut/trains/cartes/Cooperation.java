@@ -10,5 +10,6 @@ public class Cooperation extends CarteVerte {
     @Override
     public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.COOPERATION);
+        joueur.getJeu().log("Vous avez activé l'effet cooperation");
     }
 }
