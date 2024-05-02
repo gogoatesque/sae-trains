@@ -10,7 +10,7 @@ public class TrainMatinal extends CarteRouge {
 
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         joueur.ajouterEffet(TypesEffet.TRAINMATINAL);
         joueur.getJeu().log("Vous avez activé l'effet train matinal");
     }
