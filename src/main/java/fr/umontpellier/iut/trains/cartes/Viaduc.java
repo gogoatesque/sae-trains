@@ -10,5 +10,6 @@ public class Viaduc extends CarteVerte {
     @Override
     public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.VIADUC);
+        joueur.getJeu().log("Vous avez activé l'effet viaduc");
     }
 }

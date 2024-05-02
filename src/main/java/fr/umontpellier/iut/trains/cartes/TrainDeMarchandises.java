@@ -25,6 +25,7 @@ public class TrainDeMarchandises extends CarteRouge {
             choix.remove(choisit);
             Carte carteChoisit = joueur.getMain().getCarte(choisit);
             joueur.placerCarteMainDansReserve(carteChoisit);
+            joueur.getJeu().log("vous avez recycler une ferraille");
             joueur.addArgent(1);
             choisit = joueur.choisir("Tapez ferraille pour recycler ou rien pour passer", choix, null, true);
         }

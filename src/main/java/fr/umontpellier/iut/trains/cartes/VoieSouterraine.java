@@ -10,5 +10,6 @@ public class VoieSouterraine extends CarteVerte {
     @Override
     public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.VOIESOUTERRAINE);
+        joueur.getJeu().log("Vous avez activé l'effet voie souterraine");
     }
 }

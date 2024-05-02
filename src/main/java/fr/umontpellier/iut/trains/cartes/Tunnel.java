@@ -10,5 +10,6 @@ public class Tunnel extends CarteVerte {
     @Override
     public void activerEffet(Joueur joueur) {
         joueur.ajouterEffet(TypesEffet.TUNNEL);
+        joueur.getJeu().log("Vous avez activé l'effet Tunnel");
     }
 }
