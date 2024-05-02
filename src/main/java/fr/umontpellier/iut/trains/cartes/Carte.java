@@ -69,4 +69,6 @@ public abstract class Carte {
         return 0;
     }
 
+    public void copierEffetCarte(Joueur joueur, Carte carteJouee){jouerCarte(joueur);}
+
 }

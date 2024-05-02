@@ -11,7 +11,7 @@ public class Depot extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur,Carte carteJouee) {
         List<Carte> listeCartePiochee = joueur.piocher(2);
         List<String> listeChoix = new ArrayList<>();
         for (Carte c : listeCartePiochee) joueur.ajouterCarteEnMain(c);

@@ -12,7 +12,7 @@ public class CentreDeRenseignements extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<Carte> listeCartePiochee = joueur.piocher(4);
         List<String> listeChoix = new ArrayList<>();
         List<Bouton> boutons = new ArrayList<>();

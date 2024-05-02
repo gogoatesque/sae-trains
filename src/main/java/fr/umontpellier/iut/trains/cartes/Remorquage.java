@@ -12,7 +12,7 @@ public class Remorquage extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> choix = new ArrayList<>();
         List<Bouton> boutons = new ArrayList<>();
         for (Carte carte : joueur.getDefausse()) {

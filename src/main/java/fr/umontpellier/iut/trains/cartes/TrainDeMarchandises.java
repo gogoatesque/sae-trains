@@ -13,7 +13,7 @@ public class TrainDeMarchandises extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> choix = new ArrayList<>();
         for (Carte carte : joueur.getMain()) {
             if (carte.getCategorie().contains(CategoriesCarte.GRIS)) {

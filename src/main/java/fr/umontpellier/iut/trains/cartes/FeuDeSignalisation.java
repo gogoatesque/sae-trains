@@ -12,7 +12,7 @@ public class FeuDeSignalisation extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur,Carte carteJouee) {
         Carte c = joueur.piocher();
         joueur.ajouterCarteEnMain(c);
         c = joueur.piocher();

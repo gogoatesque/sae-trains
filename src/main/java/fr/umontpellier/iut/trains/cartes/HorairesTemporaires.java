@@ -11,7 +11,7 @@ public class HorairesTemporaires extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         int cpt = 0;
         List<Carte> cartesPiochees = new ArrayList<>();
         while(cpt != 2) {

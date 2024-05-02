@@ -10,7 +10,7 @@ public class Aiguillage extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         for(Carte carte : joueur.piocher(2)){
             joueur.ajouterCarteEnMain(carte);
         }

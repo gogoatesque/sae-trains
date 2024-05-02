@@ -12,7 +12,7 @@ public class HorairesEstivaux extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> listeChoix = new ArrayList<>();
         listeChoix.add("oui");
         listeChoix.add("non");

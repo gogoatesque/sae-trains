@@ -11,7 +11,7 @@ public class CabineDuConducteur extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> listeChoix = new ArrayList<>();
         int nbCarte = 0;
         for (Carte carte : joueur.getMain()) {listeChoix.add(carte.getNom());}

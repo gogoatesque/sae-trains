@@ -10,7 +10,7 @@ public class TrainDeTourisme extends CarteRouge {
 
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         joueur.addPv(1);
     }
 }

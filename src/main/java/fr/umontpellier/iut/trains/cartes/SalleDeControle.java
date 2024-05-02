@@ -8,7 +8,7 @@ public class SalleDeControle extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         for (Carte carte :joueur.piocher(3)){
             joueur.ajouterCarteEnMain(carte);
         }

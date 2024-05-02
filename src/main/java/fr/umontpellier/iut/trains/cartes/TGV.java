@@ -9,7 +9,7 @@ public class TGV extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         if (joueur.getCartesEnJeu().stream().anyMatch((carte -> {return carte.getNom().equals("Train omnibus");}))){
             joueur.addArgent(1);
         }

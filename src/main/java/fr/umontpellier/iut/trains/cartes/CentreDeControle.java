@@ -14,7 +14,7 @@ public class CentreDeControle extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur,Carte carteJouee) {
         joueur.ajouterCarteEnMain(joueur.piocher());
         Set<String> listeChoix = joueur.getJeu().getListeNomsCartes();
         String choix = joueur.choisir("Choisissez une carte", listeChoix, null, false);

@@ -11,7 +11,7 @@ public class Echangeur extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> listeChoix = new ArrayList<>();
         for(Carte c : joueur.getCartesEnJeu()) {
             if (c.getCategorie().contains(CategoriesCarte.BLEU)) listeChoix.add(c.getNom());

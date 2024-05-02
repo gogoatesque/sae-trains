@@ -15,10 +15,14 @@ public abstract class CarteRouge extends Carte{
     @Override
     public void jouerCarte(Joueur joueur) {
         joueur.addArgent(valeur);
-        faireAction(joueur);
+        faireAction(joueur,this);
     }
 
-    public abstract void faireAction(Joueur joueur);
+    public void copierEffetCarte(Joueur joueur, Carte carteJouee){
+        faireAction(joueur,carteJouee);
+    }
+
+    public abstract void faireAction(Joueur joueur, Carte carteJouee);
 
 
     public int getValeur() {

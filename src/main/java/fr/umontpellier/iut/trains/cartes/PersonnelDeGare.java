@@ -15,7 +15,7 @@ public class PersonnelDeGare extends CarteRouge {
     }
 
     @Override
-    public void faireAction(Joueur joueur) {
+    public void faireAction(Joueur joueur, Carte carteJouee) {
 
         List<String> choix = new ArrayList<>(Arrays.asList("piocher", "argent", "ferraille"));
         List<Bouton> boutons = new ArrayList<>();
