@@ -123,7 +123,7 @@ public class Joueur {
 
     public void addPv(int pv){
         pointsVictoire += pv;
-        getJeu().log("Vous avez gagné " + pv + "points de victoire");
+        getJeu().log("Vous avez gagné " + pv + " point(s) de victoire");
     }
 
     public void addCarteRecue(Carte carte){
@@ -218,7 +218,8 @@ public class Joueur {
             }
         }
         Carte cpioche = pioche.remove(0);
-        getJeu().log("Vous avez pioché " + cpioche.getNom());
+        if (cpioche != null) getJeu().log("Vous avez pioché " + cpioche.getNom());
+        else getJeu().log("Il n'y a aucune carte disponible");
         return cpioche;
     }
 
@@ -408,6 +409,7 @@ public class Joueur {
         reinitialiserArgent();
         reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
+        getJeu().clearLog(5);
         effetsActifs.clear();
     }
 
