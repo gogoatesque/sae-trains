@@ -24,7 +24,7 @@ public class UsineDeWagons extends CarteRouge {
             joueur.getMain().remove(trainMain);
 
             choixReserve = joueur.getJeu().getReserve().keySet().stream().filter(nomCarte -> !joueur.getJeu().getReserve().get(nomCarte).isEmpty() && joueur.getJeu().getReserve().get(nomCarte).get(0).getCategorie().contains(CategoriesCarte.BLEU) && joueur.getJeu().getReserve().get(nomCarte).get(0).getCout() <= trainMain.getCout()+3).map(nomCarte -> "ACHAT:"+nomCarte).toList();
-            joueur.getJeu().log("Vous pouvez choisir parmi" + choixReserve.stream().map((choix) -> choix.split(":")[1]));
+            joueur.getJeu().log("Vous pouvez choisir parmi" + choixReserve.stream().map((choix) -> choix.split(":")[1]).toList());
             Carte trainReserve = joueur.getJeu().prendreDansLaReserve(joueur.choisir("Choisissez une carte train de la reserve coutant maximum 3 de plus", choixReserve, null, false).substring (6));
             joueur.ajouterCarteEnMain(trainReserve);
         }
