@@ -598,7 +598,7 @@ public class Joueur {
             }
         }
         else {
-            getJeu().log("Pas de feraille grâce à l'effet coopération");
+            getJeu().log("Pas de ferrailles grâce à l'effet coopération");
         }
 
         jeu.AjouterRail(this, indexRail);
