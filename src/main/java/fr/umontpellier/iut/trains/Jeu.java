@@ -259,6 +259,14 @@ public class Jeu implements Runnable {
     }
 
     /**
+     * Clear le log des n derniers messages
+     * Sert surtout pour ne pas dévoiler la main du joueur en avance (à cause des logs dans piocher)
+     */
+    public void clearLog(int n) {
+        for(int i = 0; i<n; i++) log.remove(log.size()-1);
+    }
+
+    /**
      * Envoie l'état de la partie pour affichage aux joueurs avant de faire un choix
      *
      * @param instruction l'instruction qui est donnée au joueur
