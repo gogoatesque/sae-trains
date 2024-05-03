@@ -114,7 +114,7 @@ public class Joueur {
         if (argent < 0) {
             getJeu().log("Vous avez perdu : " + (-argent) + " d'argent");
         }
-        else {
+        else if (argent > 0){
             getJeu().log("Vous avez reçu : " + argent  + " d'argent");
         }
     }
