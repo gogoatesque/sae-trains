@@ -24,7 +24,7 @@ public class Remorquage extends CarteRouge {
         Carte train = joueur.getDefausse().getCarte(joueur.choisir("Choisissez une cartes Train de votre défausse", choix, boutons, false));
         if (train != null) {
             joueur.ajouterCarteEnMain(joueur.prendreCarteDefausse(train));
-            joueur.getJeu().log("Vous avez ajouté " + train.getNom() + "à votre main");
+            joueur.getJeu().log("Vous avez ajouté " + train.getNom() + " à votre main");
         }
         else {
             joueur.getJeu().log("Vous n'avez pas de carte train dans la défausse");
