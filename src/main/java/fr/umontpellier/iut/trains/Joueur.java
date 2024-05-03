@@ -112,10 +112,10 @@ public class Joueur {
     public void addArgent(int argent) {
         this.argent += argent;
         if (argent < 0) {
-            getJeu().log("Vous avez perdu : " + (-argent));
+            getJeu().log("Vous avez perdu : " + (-argent) + " d'argent");
         }
         else {
-            getJeu().log("Vous avez reçu : " + argent);
+            getJeu().log("Vous avez reçu : " + argent  + " d'argent");
         }
     }
 
@@ -123,6 +123,7 @@ public class Joueur {
 
     public void addPv(int pv){
         pointsVictoire += pv;
+        getJeu().log("Vous avez gagné " + pv + "points de victoire");
     }
 
     public void addCarteRecue(Carte carte){
@@ -383,6 +384,9 @@ public class Joueur {
                         log("Vous ne pouvez pas jouer les cartes ferrailles");
                     }
                 }
+                else if (main.getCarte(choix).getCategorie().contains(CategoriesCarte.OR)){
+                    log("Vous ne pouvez pas jouer les cartes or");
+                }
                 else {
                     peutRecycler = false;
                     // jouer une carte de la main
@@ -568,7 +572,10 @@ public class Joueur {
         }
         if (effetsActifs.contains(TypesEffet.TRAINMATINAL)){
             List <String> choix = Arrays.asList("oui","non");
-            String reponse = choisir("Voulez-vous placer cette carte au début de la pioche ?",choix,null,false);
+            List <Bouton> boutons = new ArrayList<>();
+            boutons.add(new Bouton("Oui", "oui"));
+            boutons.add(new Bouton("Non", "non"));
+            String reponse = choisir("Voulez-vous placer cette carte au début de la pioche ?",choix,boutons,false);
             if (reponse.equals("oui")){
                 placerDansPioche(carte);
             }
