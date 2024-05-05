@@ -238,7 +238,7 @@ public class Jeu implements Runnable {
                 break;
             }
         }
-        return nbJetonsGare == 0 || poseeToutRails || nbPilesVidesSaufFerraille() == 4;
+        return nbJetonsGare == 0 || poseeToutRails || nbPilesVidesSaufFerraille() >= 4;
     }
 
     private int nbPilesVidesSaufFerraille() {
