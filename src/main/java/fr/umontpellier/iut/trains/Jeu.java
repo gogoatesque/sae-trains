@@ -127,6 +127,7 @@ public class Jeu implements Runnable {
     public ListeDeCartes getCartesEcartees() {
         return cartesEcartees;
     }
+    /*Liste des tuiles possibles où l'on peut démarrer*/
     public ArrayList<Integer> tuilesPossiblesInit() {
         ArrayList<Integer> tuilesPossibles = new ArrayList<>();
         for (int i = 0; i < tuiles.size(); i++) {

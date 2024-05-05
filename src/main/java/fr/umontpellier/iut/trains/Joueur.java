@@ -105,10 +105,6 @@ public class Joueur {
         return nbJetonsRails;
     }
 
-    public int getArgent() {
-        return argent;
-    }
-
     public void addArgent(int argent) {
         this.argent += argent;
         if (argent < 0) {
@@ -409,7 +405,7 @@ public class Joueur {
         reinitialiserArgent();
         reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
-        getJeu().clearLog(5);
+        getJeu().clearLog(5); //efface les log des cartes piochées pour ne pas spoil
         effetsActifs.clear();
     }
 
