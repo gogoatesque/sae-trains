@@ -1,5 +1,6 @@
 package fr.umontpellier.iut.trains.cartes;
 
+import fr.umontpellier.iut.trains.Bouton;
 import fr.umontpellier.iut.trains.Joueur;
 
 import java.util.ArrayList;
@@ -15,19 +16,21 @@ public class TrainDeMarchandises extends CarteRouge {
     @Override
     public void faireAction(Joueur joueur, Carte carteJouee) {
         List<String> choix = new ArrayList<>();
+        List<Bouton> boutons = new ArrayList<>();
+        boutons.add(new Bouton("Ferraille", "Ferraille"));
         for (Carte carte : joueur.getMain()) {
             if (carte.getCategorie().contains(CategoriesCarte.GRIS)) {
                 choix.add(carte.getNom());
             }
         }
-        String choisit = joueur.choisir("Tapez ferraille pour recycler ou rien pour passer", choix, null, true);
+        String choisit = joueur.choisir("Cliquez sur 'ferraille' pour recycler ou 'passer' pour passer votre tour", choix, boutons, true);
         while(!choisit.isEmpty()){
             choix.remove(choisit);
             Carte carteChoisit = joueur.getMain().getCarte(choisit);
             joueur.placerCarteMainDansReserve(carteChoisit);
-            joueur.getJeu().log("vous avez recycler une ferraille");
+            joueur.getJeu().log("Vous avez recyclé une ferraille");
             joueur.addArgent(1);
-            choisit = joueur.choisir("Tapez ferraille pour recycler ou rien pour passer", choix, null, true);
+            choisit = joueur.choisir("Cliquez sur 'ferraille' pour recycler ou 'passer' pour passer votre tour", choix, boutons, true);
         }
     }
 }
