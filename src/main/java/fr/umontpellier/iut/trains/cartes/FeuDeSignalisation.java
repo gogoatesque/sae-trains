@@ -24,7 +24,7 @@ public class FeuDeSignalisation extends CarteRouge {
             List<Bouton> boutons = new ArrayList<>();
             boutons.add(new Bouton("Défausser", "oui"));
             boutons.add(new Bouton("Replacer sur la pioche", "non"));
-            String choix = joueur.choisir("Voulez-vous défausser la carte (oui) ou replacer au dessus de la pioche (non) ?", listeChoix, boutons, false);
+            String choix = joueur.choisir(String.format("Voulez-vous défausser la carte %s ou replacer au dessus de la pioche ?", c.getNom()), listeChoix, boutons, false);
             if (choix.equals("oui")) {
                 joueur.placerCarteDefausse(c);
                 joueur.getJeu().log("Vous avez choisi de défausser : " + c.getNom());
