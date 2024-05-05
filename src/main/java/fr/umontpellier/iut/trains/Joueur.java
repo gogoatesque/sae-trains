@@ -105,6 +105,10 @@ public class Joueur {
         return nbJetonsRails;
     }
 
+    public int getArgent() {
+        return argent;
+    }
+
     public void addArgent(int argent) {
         this.argent += argent;
         if (argent < 0) {
@@ -114,6 +118,7 @@ public class Joueur {
             getJeu().log("Vous avez reçu : " + argent  + " d'argent");
         }
     }
+
     public void reinitialiserArgent() {argent = 0;}
 
     public void addPv(int pv){
@@ -261,13 +266,17 @@ public class Joueur {
     public void decrementerPointsRail(){pointsRails--;}
     public void reinitialiserPointsRail(){pointsRails = 0;}
     public void decrementerJetonsRail(){nbJetonsRails--;}
-    public void enleverCarteMain(Carte carte) {main.remove(carte);}
+    public void enleverCarteMain(Carte carte) {
+        main.remove(carte);
+    }
 
     public void enleverCarteEnJeu(Carte carte) {
         cartesEnJeu.remove(carte);
     }
 
-    public void ajouterCarteEnMain(Carte carte) {main.add(carte);}
+    public void ajouterCarteEnMain(Carte carte){
+        main.add(carte);
+    }
 
     public void placerCarteMainDansReserve(Carte carte){
         enleverCarteMain(carte);
@@ -400,7 +409,7 @@ public class Joueur {
         reinitialiserArgent();
         reinitialiserPointsRail();
         main.addAll(piocher(5)); // piocher 5 cartes en main
-        getJeu().clearLog(5); // clear le log pour ne pas afficher les cartes piochées en avance
+        getJeu().clearLog(5);
         effetsActifs.clear();
     }
 

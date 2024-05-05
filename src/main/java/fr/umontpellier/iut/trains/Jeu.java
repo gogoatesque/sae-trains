@@ -127,8 +127,6 @@ public class Jeu implements Runnable {
     public ListeDeCartes getCartesEcartees() {
         return cartesEcartees;
     }
-
-    /*Liste des tuiles possibles à l'initialisation du jeu*/
     public ArrayList<Integer> tuilesPossiblesInit() {
         ArrayList<Integer> tuilesPossibles = new ArrayList<>();
         for (int i = 0; i < tuiles.size(); i++) {
@@ -137,11 +135,6 @@ public class Jeu implements Runnable {
         return tuilesPossibles;
     }
 
-    public void AjouterRail(Joueur joueur, int indexTuile){
-        joueur.decrementerJetonsRail();
-        Tuile tuile = tuiles.get(indexTuile);
-        tuile.ajouterRail(joueur);
-    }
     /**
      * Renvoie un ensemble de tous les noms des cartes en jeu.
      * 
@@ -362,4 +355,9 @@ public class Jeu implements Runnable {
                 Map.entry("reserve", listeReserve));
     }
 
+    public void AjouterRail(Joueur joueur, int indexTuile){
+        joueur.decrementerJetonsRail();
+        Tuile tuile = tuiles.get(indexTuile);
+        tuile.ajouterRail(joueur);
+    }
 }
