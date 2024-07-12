@@ -206,3 +206,5 @@ Il est donc attendu que les projets rendus passent le premier jeu de tests sans 
 **Remarque :** les classes de tests qui vous sont fournies contiennent dans leur nom le groupe nominal `ProfTest`. **Ces classes ne doivent pas être modifiées**. Ceci nous permettra, si besoin plus tard, d'ajouter de nouveaux tests dans vos dépôts GitLab. Par conséquent, pour écrire vos propres tests, vous créerez donc des classes de tests distinctes (vous pouvez vous inspirer du code fourni). Pour faire simple, ne faites aucune modifications dans les classes de tests fournies, et écrivez vos propres classes de tests en vous inspirant de celles-ci.
 
 **Remarque importante** : puisque l'évaluation des rendus se fait par des tests automatisés, **les projets qui ne compilent pas ou qui ne respectent pas les signatures données seront automatiquement rejetés** et la note sera 0.
+#   T r a i n s  
+ 
